@@ -1,6 +1,5 @@
-import Vue from 'vue'
-import main from './main.vue'
-import router from './router'
-import "bootstrap/dist/css/bootstrap.min.css"
-import "bootstrap"
-new Vue({router, render: h=>h(main)}).$mount('#app')
+import { createApp } from 'vue'
+import App from './App.vue'
+import './index.css'
+import { router } from './router.js'
+createApp(App).use(router).mount('#app')
