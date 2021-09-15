@@ -42,10 +42,7 @@
                 </div>
                 <p class="px-6 text-sm text-center text-coolGray-600">
                     Don't have an account yet?
-                    <a
-                        href="#"
-                        class="hover:underline text-violet-600"
-                    >Sign up</a>.
+                    <router-link to="/CreateAccount" class="hover:underline text-violet-600">Sign up</router-link>.
                 </p>
             </div>
         </form>
@@ -57,19 +54,18 @@ import axios from 'axios'
 import { isAuthenticated } from '../helpers/userAuth'
 const router = useRouter()
 const login = () => {
-    // console.log("CLICKEASTE ACA" + email.value)
-    // isAuthenticated.value = true
-    // router.push('/')
     axios.post('http://localhost:8080/Login', {
         headers: {
             "Content-type": "application/json"
         },
         data: {
-            EMAIL: email.value, 
-            PASS: pass.value
+            user_email: email.value,
+            user_password: pass.value
         }
     }).then(function (response) {
-        console.log(response)
+        sessionStorage.setItem('user', response.data)
+        isAuthenticated.value = true
+        router.push('/')
     }).catch(function (error) {
         console.log(error)
     })
