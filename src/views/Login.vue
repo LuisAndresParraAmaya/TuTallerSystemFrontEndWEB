@@ -17,7 +17,7 @@
             <div class="space-y-4">
               <div>
                 <label for="email" class="block mb-2 text-sm"
-                  >Correo lectronico</label
+                  >Correo Electrónico</label
                 >
                 <input
                   type="email"
@@ -38,9 +38,9 @@
               </div>
               <div>
                 <div class="flex justify-between mb-2">
-                  <label for="password" class="text-sm">Contraeña</label>
+                  <label for="password" class="text-sm">Contraseña</label>
                   <a href="#" class="text-xs hover:underline text-coolGray-600"
-                    >Olvidaste tu constraseña?</a
+                    >¿Olvidaste tu contraseña?</a
                   >
                 </div>
                 <input
@@ -71,9 +71,9 @@
                 </button>
               </div>
               <p class="px-6 text-sm text-center text-coolGray-600">
-                No tienes cuenta?
+                ¿No tienes cuenta?
                 <a href="#" class="hover:underline text-violet-600"
-                  >Suscribete!!</a
+                  >¡Suscribete!</a
                 >.
               </p>
             </div>
