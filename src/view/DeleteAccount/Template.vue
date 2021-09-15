@@ -2,21 +2,21 @@
   <div class="grid grid-cols-3 content-center text-center">
       <div></div>
     <div class="form-control">
-        <h1>Delete Account</h1>
+        <h1>Eliminar Cuenta</h1>
       <label class="label">
-        <span class="label-text">Current Password </span>
+        <span class="label-text">Contraseña Actual</span>
       </label>
-      <input type="text" placeholder="Current Password" class="input input-bordered" />
+      <input type="text" class="input input-bordered" id="txtPassword"/>
        <label class="label">
-        <span class="label-text">Confirm Password</span>
+        <span class="label-text">Confirmar Contraseña</span>
       </label>
-      <input type="text" placeholder="Confirm Password" class="input input-bordered" />
+      <input type="text"  class="input input-bordered" id="txtConfirmPassword"/>
        
        <button
               
-              class="w-full px-8 py-3 rounded-md btn text-coolGray-50"
+              class="w-full px-8 py-3 mx-auto rounded-md btn text-coolGray-50"
             >
-              Deactivate Account
+              Desactivar Cuenta
             </button>
             
     </div>

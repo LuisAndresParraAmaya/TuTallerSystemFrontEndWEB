@@ -1,90 +1,87 @@
 <template>
   <div class="container mx-auto">
-    <div class="grid grid-cols-3">
+    <div class="grid grid-cols-1 lg:grid-cols-3 p-3">
       <div></div>
       <div>
-          <div class="
-        flex flex-col
-        
-        rounded-md
-        sm:p-10
-        bg-coolGray-50
-        text-coolGray-800
-      "
-    >
-      <div class="mb-8 text-center">
-        <h1 class="my-3 text-4xl font-bold">Sign in</h1>
-        <p class="text-sm text-coolGray-600">Sign in to access your account</p>
-      </div>
-      <form
-        @submit.prevent
-        class="space-y-12 ng-untouched ng-pristine ng-valid"
-      >
-        <div class="space-y-4">
-          <div>
-            <label for="email" class="block mb-2 text-sm">Email address</label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="leroy@jenkins.com"
-              class="
-                w-full
-                px-3
-                py-2
-                border
-                rounded-md
-                border-coolGray-300
-                bg-coolGray-50
-                text-coolGray-800
-              "
-            />
+        <div class="flex flex-col rounded-md sm:p-10 text-coolGray-800">
+          <div class="mb-8 text-center">
+            <h1 class="my-3 text-4xl font-bold">Iniciar sesión</h1>
+            <p class="text-sm text-coolGray-600">
+              Inicia sesión para acceder a tu cuenta
+            </p>
           </div>
-          <div>
-            <div class="flex justify-between mb-2">
-              <label for="password" class="text-sm">Password</label>
-              <a href="#" class="text-xs hover:underline text-coolGray-600"
-                >Forgot password?</a
-              >
+          <form
+            @submit.prevent
+            class="space-y-12 ng-untouched ng-pristine ng-valid mt-12"
+          >
+            <div class="space-y-4">
+              <div>
+                <label for="email" class="block mb-2 text-sm"
+                  >Correo lectronico</label
+                >
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="ejemplo@TuTaller.cl"
+                  class="
+                    w-full
+                    px-3
+                    py-2
+                    border
+                    rounded-md
+                    border-coolGray-300
+                    bg-coolGray-50
+                    text-coolGray-800
+                  "
+                />
+              </div>
+              <div>
+                <div class="flex justify-between mb-2">
+                  <label for="password" class="text-sm">Contraeña</label>
+                  <a href="#" class="text-xs hover:underline text-coolGray-600"
+                    >Olvidaste tu constraseña?</a
+                  >
+                </div>
+                <input
+                  type="password"
+                  name="password"
+                  id="pass"
+                  placeholder="*****"
+                  class="
+                    w-full
+                    px-3
+                    py-2
+                    border
+                    rounded-md
+                    border-coolGray-300
+                    bg-coolGray-50
+                    text-coolGray-800
+                  "
+                />
+              </div>
             </div>
-            <input
-              type="password"
-              name="password"
-              id="pass"
-              placeholder="*****"
-              class="
-                w-full
-                px-3
-                py-2
-                border
-                rounded-md
-                border-coolGray-300
-                bg-coolGray-50
-                text-coolGray-800
-              "
-            />
-          </div>
+            <div class="space-y-2">
+              <div>
+                <button
+                  @click="login()"
+                  class="w-full px-8 py-3 rounded-md btn text-coolGray-50"
+                >
+                  Iniciar sesión
+                </button>
+              </div>
+              <p class="px-6 text-sm text-center text-coolGray-600">
+                No tienes cuenta?
+                <a href="#" class="hover:underline text-violet-600"
+                  >Suscribete!!</a
+                >.
+              </p>
+            </div>
+          </form>
         </div>
-        <div class="space-y-2">
-          <div>
-            <button
-              @click="login()"
-              class="w-full px-8 py-3 rounded-md btn text-coolGray-50"
-            >
-              Sign in
-            </button>
-          </div>
-          <p class="px-6 text-sm text-center text-coolGray-600">
-            Don't have an account yet?
-            <a href="#" class="hover:underline text-violet-600">Sign up</a>.
-          </p>
-        </div>
-      </form>
-    </div>
       </div>
       <div></div>
     </div>
-    
   </div>
 </template>
 <script setup>
