@@ -7,6 +7,7 @@ import MyServices from './views/MyServices.vue'
 import ModifyProfile from './view/ModifyProfile/Template.vue'
 import AddWorkshopOffices from './view/AddWorkshopOffices/Template.vue'
 import ChangePassword from './view/ChangePassword/Template.vue'
+import DeleteAccount from './view/DeleteAccount/Template.vue'
 
 const routes = [
     {path: '/', component: Home },
@@ -15,7 +16,8 @@ const routes = [
     {path: '/MyServices', component: MyServices },
     {path: '/ModifyProfile', component: ModifyProfile },
     {path: '/AddWorkshopOffices', component: AddWorkshopOffices },
-    {path: '/ChangePassword', component: ChangePassword }
+    {path: '/ChangePassword', component: ChangePassword },
+    {path: '/DeleteAccount', component: DeleteAccount }
 ]
 
 export const router = createRouter({
