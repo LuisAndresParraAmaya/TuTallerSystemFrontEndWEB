@@ -39,9 +39,11 @@
               <div>
                 <div class="flex justify-between mb-2">
                   <label for="password" class="text-sm">Contraseña</label>
-                  <a href="#" class="text-xs hover:underline text-coolGray-600"
-                    >¿Olvidaste tu contraseña?</a
-                  >
+                  <router-link
+                    to="/RecoveryPassword"
+                    class="text-xs hover:underline text-coolGray-600"
+                    >¿Olvidaste tu contraseña?
+                  </router-link>
                 </div>
                 <input
                   type="password"
@@ -72,9 +74,11 @@
               </div>
               <p class="px-6 text-sm text-center text-coolGray-600">
                 ¿No tienes cuenta?
-                <a href="#" class="hover:underline text-violet-600"
-                  >¡Suscribete!</a
-                >.
+                <router-link
+                  to="/CreateAccount"
+                  class="hover:underline text-violet-600"
+                  >¡Suscribete!</router-link
+                >
               </p>
             </div>
           </form>
@@ -91,20 +95,22 @@ import { isAuthenticated } from "../helpers/userAuth";
 const router = useRouter();
 const login = () => {
   // console.log("CLICKEASTE ACA" + email.value)
-  // isAuthenticated.value = true
-  // router.push('/')
+
   axios
     .post("http://localhost:8080/Login", {
       headers: {
         "Content-type": "application/json",
       },
       data: {
-        EMAIL: email.value,
-        PASS: pass.value,
+        user_email: email.value,
+        user_password: pass.value,
       },
     })
     .then(function (response) {
       console.log(response);
+      sessionStorage.setItem('user',response);
+      isAuthenticated.value = true;
+      router.push("/");
     })
     .catch(function (error) {
       console.log(error);
