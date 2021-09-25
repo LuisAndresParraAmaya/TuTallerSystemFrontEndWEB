@@ -34,6 +34,7 @@
                     bg-coolGray-50
                     text-coolGray-800
                   "
+                  required
                 />
               </div>
               <div>
@@ -60,6 +61,7 @@
                     bg-coolGray-50
                     text-coolGray-800
                   "
+                  required
                 />
               </div>
             </div>

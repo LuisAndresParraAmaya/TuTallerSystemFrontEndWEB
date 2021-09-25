@@ -10,7 +10,14 @@
           </label>
           <input
             type="email"
-            class="input input-bordered"
+            class="w-full
+                    px-3
+                    py-2
+                    border
+                    rounded-md
+                    border-coolGray-300
+                    bg-coolGray-50
+                    text-coolGray-800"
             id="txtEmail"
             required
           />
@@ -32,22 +39,23 @@
 <script setup>
 import axios from "axios";
 const recoveryPassword = () => {
-  console.log('hola')
-  // axios
-  //   .post("http://localhost:8080/RecoveryPassword", {
-  //     headers: {
-  //       "Content-type": "application/json",
-  //     },
-  //     data: {
-  //       user_email: txtEmail.value,
-  //     },
-  //   })
-  //   .then(function (response) {
-  //     console.log(response);
-  //   })
-  //   .catch(function (error) {
-  //     console.log(error);
-  //   });
+  sessionStorage.setItem("emailRecoveryPass",txtEmail.value)
+  console.log(txtEmail.value)
+  axios
+    .post("http://localhost:8080/RecoveryPassword", {
+      headers: {
+        "Content-type": "application/json",
+      },
+      data: {
+        user_email: txtEmail.value,
+      },
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 };
 </script>
 
