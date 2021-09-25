@@ -17,6 +17,11 @@
                     <a>Iniciar Sesión</a>
                 </router-link>
                 <div v-else>
+                     <router-link
+                        to="/ModifyProfile"
+                        class="btn btn-ghost btn-sm rounded-btn"
+                        @click="isAuthenticated = false"
+                    >Modificar Perfil</router-link>
                     <router-link
                         to="/myServices"
                         class="btn btn-ghost btn-sm rounded-btn"

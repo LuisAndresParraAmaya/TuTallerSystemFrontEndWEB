@@ -109,8 +109,7 @@ const login = () => {
       },
     })
     .then(function (response) {
-      console.log(response);
-      sessionStorage.setItem('user',response);
+      sessionStorage.setItem('user_rut',response.data);
       isAuthenticated.value = true;
       router.push("/");
     })

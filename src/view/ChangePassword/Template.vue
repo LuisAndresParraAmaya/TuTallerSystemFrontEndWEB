@@ -3,17 +3,8 @@
     <div></div>
     <div>
       <h1 class="my-3 text-4xl font-bold">Modificar Contraseña</h1>
-      <form class="mt-12">
+      <form @submit.prevent class="mt-12">
         <div class="form-control">
-          <label class="label">
-            <span class="label-text">Correo electronico </span>
-          </label>
-          <input
-            type="email"
-            class="input input-bordered"
-            id="txtEmail"
-            required
-          />
           <label class="label">
             <span class="label-text">Nueva contraseña </span>
           </label>
@@ -45,7 +36,31 @@
     <div></div>
   </div>
 </template>
-
-<style src="./Style.css"></style>
+<script setup>
+import { useRouter } from "vue-router"
+const router = useRouter()
+import axios from "axios"
+import { isAuthenticated } from "../../helpers/userAuth.js";
+function changePassword(){
+  axios
+    .post("http://localhost:8080/ModifyPassword", {
+      headers: {
+        "Content-type": "application/json",
+      },
+      data: {
+        user_rut: sessionStorage.getItem('user_rut'),
+        user_password: txtPass.value
+      },
+    })
+    .then(function (response) {
+      if(response.data.Response == 'Operation Success'){
+        alert("Tu contraseña fue actualizada correctamente");
+      }
+    })
+    .catch(function (error) {
+      console.log(error)
+    })
+}
+</script>
 
 

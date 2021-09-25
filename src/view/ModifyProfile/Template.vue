@@ -48,18 +48,12 @@
         class="input input-bordered"
         id="txtPhone"
       />
-<<<<<<< Updated upstream
-      <button
-        @click=""
-        class="w-full px-8 py-3 rounded-md btn text-coolGray-50"
+      <button class="w-full px-8 py-3 rounded-md btn text-coolGray-50"
+        @click="goToChangePassword()"
       >
-=======
-      <button class="w-full px-8 py-3 rounded-md btn text-coolGray-50">
->>>>>>> Stashed changes
         Cambiar Contraseña
       </button>
       <button
-        @click=""
         class="w-full px-8 py-3 rounded-md btn text-coolGray-50"
         @click="goToDeleteAccount()"
       >
@@ -79,17 +73,11 @@
 
 <style src="./Style.css"></style>
 <script setup>
-<<<<<<< Updated upstream
-import axios from "axios";
-const modifyProfile = () => {
-  console.log(txtName.value);
-=======
 import { useRouter } from "vue-router"
 const router = useRouter()
 import axios from "axios"
 import { isAuthenticated } from "../../helpers/userAuth.js";
 function modifyProfile(){
->>>>>>> Stashed changes
   axios
     .post("http://localhost:8080/ModifyProfile", {
       headers: {
@@ -99,15 +87,6 @@ function modifyProfile(){
         user_name: txtName.value,
         user_last_name: txtLastname.value,
         user_email: txtEmail.value,
-<<<<<<< Updated upstream
-        user_phone: txtxPhone.value,
-        user_rut: sessionStorage.getItem('user'),
-        user_new_rut: txtNewRut.value
-      },
-    })
-    .then(function (response) {
-      console.log(response);
-=======
         user_phone: txtPhone.value,
         user_rut: sessionStorage.getItem("user_rut"),
         user_new_rut: txtNewRut.value,
@@ -115,7 +94,9 @@ function modifyProfile(){
     })
     .then(function (response) {
       sessionStorage.setItem("user_rut", response.data.user_new_rut)
->>>>>>> Stashed changes
+      if (response.data.user_new_rut != undefined) {
+        alert("Sus datos fueron actualizados correctamente");
+      }
     })
     .catch(function (error) {
       console.log(error)
@@ -125,6 +106,11 @@ function modifyProfile(){
 function goToDeleteAccount() {
   isAuthenticated.value = true;
   router.push("/DeleteAccount");
+}
+
+function goToChangePassword(){
+  isAuthenticated.value = true;
+  router.push("/ChangePassword");
 }
 </script>
 
