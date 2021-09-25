@@ -56,7 +56,7 @@
             <span class="label-text">Descripción</span>
           </label>
 
-          <textarea class="input-bordered textarea" name="descriptionArea" id="descriptionArea" cols="30" rows="10"></textarea>
+          <textarea class="input-bordered textarea" name="descriptionArea" id="descriptionArea" cols="30" rows="5"></textarea>
 
           <button
             @click="realizedPostulation()"
