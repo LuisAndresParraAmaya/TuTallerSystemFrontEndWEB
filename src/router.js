@@ -11,6 +11,7 @@ import DeleteAccount from './view/DeleteAccount/Template.vue'
 import RecoveryPassword from './view/RecoveryPassword/Template.vue'
 import RecoveryPassword2 from './view/RecoveryPassword/Template2.vue'
 import RecoveryPassword3 from './view/RecoveryPassword/Template3.vue'
+import RealizePostulation from './view/RealizePostulation/Template.vue'
 const routes = [
     {path: '/', component: Home },
     {path: '/Login', component: About },
@@ -22,7 +23,9 @@ const routes = [
     {path: '/DeleteAccount', component: DeleteAccount },
     {path: '/RecoveryPassword', component: RecoveryPassword },
     {path: '/RecoveryPassword2', component: RecoveryPassword2 },
-    {path: '/RecoveryPassword3', component: RecoveryPassword3 }
+    {path: '/RecoveryPassword3', component: RecoveryPassword3 },
+    {path: '/RealizePostulation', component: RealizePostulation }
+    
 ]
 
 export const router = createRouter({
