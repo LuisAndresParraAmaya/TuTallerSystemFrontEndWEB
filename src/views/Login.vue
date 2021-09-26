@@ -94,6 +94,11 @@
 import { useRouter } from "vue-router";
 import axios from "axios";
 import { isAuthenticated } from "../helpers/userAuth";
+import { onMounted } from "@vue/runtime-core";
+onMounted(function(){
+  console.log("MONTADO")
+  isAuthenticated.value = false;
+})
 const router = useRouter();
 const login = () => {
   // console.log("CLICKEASTE ACA" + email.value)

@@ -1,83 +1,94 @@
 <template>
   <div class="grid grid-cols-3 content-center text-center">
     <div></div>
-    <div class="form-control">
-      <h1>Modificar Perfil</h1>
-      <label class="label">
-        <span class="label-text">Nombre</span>
-      </label>
-      <input
-        type="text"
-        placeholder="Nombre"
-        class="input input-bordered"
-        id="txtName"
-      />
-      <label class="label">
-        <span class="label-text">Apellido</span>
-      </label>
-      <input
-        type="text"
-        placeholder="Apellido"
-        class="input input-bordered"
-        id="txtLastname"
-      />
-      <label class="label">
-        <span class="label-text">Rut</span>
-      </label>
-      <input
-        type="text"
-        placeholder="Rut"
-        class="input input-bordered"
-        id="txtNewRut"
-      />
-      <label class="label">
-        <span class="label-text">Email</span>
-      </label>
-      <input
-        type="text"
-        placeholder="Email"
-        class="input input-bordered"
-        id="txtEmail"
-      />
-      <label class="label">
-        <span class="label-text">Telefono</span>
-      </label>
-      <input
-        type="text"
-        placeholder="Telefono"
-        class="input input-bordered"
-        id="txtPhone"
-      />
-      <button class="w-full px-8 py-3 rounded-md btn text-coolGray-50"
-        @click="goToChangePassword()"
-      >
-        Cambiar Contraseña
-      </button>
-      <button
-        class="w-full px-8 py-3 rounded-md btn text-coolGray-50"
-        @click="goToDeleteAccount()"
-      >
-        Borrar Cuenta
-      </button>
-      <button
-        @click="modifyProfile()"
-        class="w-full px-8 py-3 rounded-md btn text-coolGray-50"
-      >
-        Actualizar Datos
-      </button>
-    </div>
+    <form
+      @submit.prevent
+      class="space-y-12 ng-untouched ng-pristine ng-valid mt-12"
+    >
+      <div class="form-control">
+        <h1>Modificar Perfil</h1>
 
+        <label class="label">
+          <span class="label-text">Nombre</span>
+        </label>
+        <input
+          type="text"
+          placeholder="Nombre"
+          class="input input-bordered"
+          id="txtName"
+        />
+        <label class="label">
+          <span class="label-text">Apellido</span>
+        </label>
+        <input
+          type="text"
+          placeholder="Apellido"
+          class="input input-bordered"
+          id="txtLastname"
+        />
+        <label class="label">
+          <span class="label-text">Rut</span>
+        </label>
+        <input
+          type="text"
+          placeholder="Rut"
+          class="input input-bordered"
+          id="txtNewRut"
+        />
+        <label class="label">
+          <span class="label-text">Email</span>
+        </label>
+        <input
+          type="text"
+          placeholder="Email"
+          class="input input-bordered"
+          id="txtEmail"
+        />
+        <label class="label">
+          <span class="label-text">Telefono</span>
+        </label>
+        <input
+          type="text"
+          placeholder="Telefono"
+          class="input input-bordered"
+          id="txtPhone"
+        />
+        <button
+          class="w-full px-8 py-3 rounded-md btn text-coolGray-50"
+          @click="goToChangePassword()"
+        >
+          Cambiar Contraseña
+        </button>
+        <button
+          class="w-full px-8 py-3 rounded-md btn text-coolGray-50"
+          @click="goToDeleteAccount()"
+        >
+          Borrar Cuenta
+        </button>
+        <button
+          @click="modifyProfile()"
+          class="w-full px-8 py-3 rounded-md btn text-coolGray-50"
+        >
+          Actualizar Datos
+        </button>
+      </div>
+    </form>
     <div></div>
   </div>
 </template>
 
-<style src="./Style.css"></style>
 <script setup>
-import { useRouter } from "vue-router"
-const router = useRouter()
-import axios from "axios"
-import { isAuthenticated } from "../../helpers/userAuth.js";
-function modifyProfile(){
+import { onMounted } from "@vue/runtime-core";
+import { isAuthenticated } from "../../helpers/userAuth";
+onMounted(function(){
+  console.log("MONTADO")
+  isAuthenticated.value = true;
+})
+import { useRouter } from "vue-router";
+const router = useRouter();
+import axios from "axios";
+
+function modifyProfile() {
   axios
     .post("http://localhost:8080/ModifyProfile", {
       headers: {
@@ -93,14 +104,14 @@ function modifyProfile(){
       },
     })
     .then(function (response) {
-      sessionStorage.setItem("user_rut", response.data.user_new_rut)
+      sessionStorage.setItem("user_rut", response.data.user_new_rut);
       if (response.data.user_new_rut != undefined) {
         alert("Sus datos fueron actualizados correctamente");
       }
     })
     .catch(function (error) {
-      console.log(error)
-    })
+      console.log(error);
+    });
 }
 
 function goToDeleteAccount() {
@@ -108,7 +119,7 @@ function goToDeleteAccount() {
   router.push("/DeleteAccount");
 }
 
-function goToChangePassword(){
+function goToChangePassword() {
   isAuthenticated.value = true;
   router.push("/ChangePassword");
 }

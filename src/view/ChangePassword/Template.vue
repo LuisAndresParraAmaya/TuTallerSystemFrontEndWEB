@@ -40,7 +40,12 @@
 import { useRouter } from "vue-router"
 const router = useRouter()
 import axios from "axios"
-import { isAuthenticated } from "../../helpers/userAuth.js";
+import { onMounted } from "@vue/runtime-core";
+import { isAuthenticated } from "../../helpers/userAuth";
+onMounted(function(){
+  console.log("MONTADO")
+  isAuthenticated.value = true;
+})
 function changePassword(){
   axios
     .post("http://localhost:8080/ModifyPassword", {
