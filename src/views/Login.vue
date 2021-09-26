@@ -108,10 +108,16 @@ const login = () => {
         user_password: pass.value,
       },
     })
-    .then(function (response) {
-      sessionStorage.setItem('user_rut',response.data);
-      isAuthenticated.value = true;
-      router.push("/");
+    .then(function (res) {
+      switch (res.data.Response) {
+        case 'Login Success':
+          sessionStorage.setItem("user_rut", res.data.user_rut);
+          isAuthenticated.value = true;
+          router.push("/");
+          break
+        case 'Login Failed':
+          alert("Autentificación fallida, comprueba tu dirección de correo electronico o contraseña")
+      }
     })
     .catch(function (error) {
       console.log(error);

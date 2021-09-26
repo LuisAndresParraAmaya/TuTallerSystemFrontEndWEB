@@ -47,11 +47,12 @@ function sendCode() {
   axios
     .post("http://localhost:8080/RecoveryPassword", {
       headers: { "Content-type": "application/json" },
-      data: { user_email: txtEmail.value },
+      data: { user_email: txtEmail.value }
     })
     .then(function (res) {
       switch (res.data.Response) {
         case "Recovery Password Sended":
+          sessionStorage.setItem('user_email', txtEmail.value)
           router.push("/RecoveryPassword2");
       }
     });
