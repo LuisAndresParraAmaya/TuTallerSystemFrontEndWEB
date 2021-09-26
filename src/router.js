@@ -13,7 +13,7 @@ import RealizePostulation from './view/RealizePostulation/Template.vue'
 const routes = [
     {path: '/', component: Home },
     {path: '/Login', component: Login },
-    {path: '/CreateAccount', component: CreateAccount },
+    {path: '/CreateAccount', name:'ModifyProfile', component: CreateAccount },
     {path: '/ModifyProfile', component: ModifyProfile },
     {path: '/AddWorkshopOffices', component: AddWorkshopOffices },
     {path: '/ChangePassword', component: ChangePassword },
