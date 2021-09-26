@@ -1,9 +1,129 @@
 <template>
-    <div>
-    <h1>Hola Bro</h1>
+  <div class="container mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-3 p-3">
+      <div></div>
+      <div>
+        <div class="flex flex-col rounded-md sm:p-10 text-coolGray-800">
+          <div class="mb-8 text-center">
+            <h1 class="my-3 text-4xl font-bold">Iniciar sesión</h1>
+            <p class="text-sm text-coolGray-600">
+              Inicia sesión para acceder a tu cuenta
+            </p>
+          </div>
+          <form
+            @submit.prevent
+            class="space-y-12 ng-untouched ng-pristine ng-valid mt-12"
+          >
+            <div class="space-y-4">
+              <div>
+                <label for="email" class="block mb-2 text-sm"
+                  >Correo Electrónico</label
+                >
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="ejemplo@TuTaller.cl"
+                  class="
+                    w-full
+                    px-3
+                    py-2
+                    border
+                    rounded-md
+                    border-coolGray-300
+                    bg-coolGray-50
+                    text-coolGray-800
+                  "
+                  required
+                />
+              </div>
+              <div>
+                <div class="flex justify-between mb-2">
+                  <label for="password" class="text-sm">Contraseña</label>
+                  <router-link
+                    to="/RecoveryPassword"
+                    class="text-xs hover:underline text-coolGray-600"
+                    >¿Olvidaste tu contraseña?
+                  </router-link>
+                </div>
+                <input
+                  type="password"
+                  name="password"
+                  id="pass"
+                  placeholder="*****"
+                  class="
+                    w-full
+                    px-3
+                    py-2
+                    border
+                    rounded-md
+                    border-coolGray-300
+                    bg-coolGray-50
+                    text-coolGray-800
+                  "
+                  required
+                />
+              </div>
+            </div>
+            <div class="space-y-2">
+              <div>
+                <button
+                  @click="login()"
+                  class="w-full px-8 py-3 rounded-md btn text-coolGray-50"
+                >
+                  Iniciar sesión
+                </button>
+              </div>
+              <p class="px-6 text-sm text-center text-coolGray-600">
+                ¿No tienes cuenta?
+                <router-link
+                  to="/CreateAccount"
+                  class="hover:underline text-violet-600"
+                  >¡Suscribete!</router-link
+                >
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div></div>
     </div>
+  </div>
 </template>
-
-<style src="./Style.css"></style>
-<script src="./Component.js"></script>
-
+<script setup>
+import { useRouter } from "vue-router";
+import axios from "axios";
+import { isAuthenticated } from "../../helpers/userAuth";
+import { onMounted } from "@vue/runtime-core";
+onMounted(function(){
+  console.log("MONTADO")
+  isAuthenticated.value = false;
+})
+const router = useRouter();
+const login = () => {
+  axios
+    .post("http://localhost:8080/Login", {
+      headers: {
+        "Content-type": "application/json",
+      },
+      data: {
+        user_email: email.value,
+        user_password: pass.value,
+      },
+    })
+    .then(function (res) {
+      switch (res.data.Response) {
+        case 'Login Success':
+          sessionStorage.setItem("user_rut", res.data.user_rut);
+          isAuthenticated.value = true;
+          router.push("/");
+          break
+        case 'Login Failed':
+          alert("Autentificación fallida, comprueba tu dirección de correo electronico o contraseña")
+      }
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+};
+</script>

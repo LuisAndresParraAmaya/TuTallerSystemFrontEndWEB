@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from './views/Home.vue'
-import About from './views/Login.vue'
+import Login from './view/Login/Template.vue'
 import CreateAccount from './views/CreateAccount.vue'
 import MyServices from './views/MyServices.vue'
 import ModifyProfile from './view/ModifyProfile/Template.vue'
@@ -13,7 +13,7 @@ import RecoveryPassword3 from './view/RecoveryPassword/Template3.vue'
 import RealizePostulation from './view/RealizePostulation/Template.vue'
 const routes = [
     {path: '/', component: Home },
-    {path: '/Login', component: About },
+    {path: '/Login', component: Login },
     {path: '/CreateAccount', component: CreateAccount },
     {path: '/MyServices', component: MyServices },
     {path: '/ModifyProfile', component: ModifyProfile },
