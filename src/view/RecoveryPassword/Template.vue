@@ -3,27 +3,28 @@
     <div></div>
     <div>
       <h1 class="my-3 text-4xl font-bold">Recuperar contraseña</h1>
-      <form class="mt-12">
+      <form @submit.prevent class="mt-12">
         <div class="form-control">
           <label class="label">
             <span class="label-text">Correo electronico </span>
           </label>
           <input
             type="email"
-            class="w-full
-                    px-3
-                    py-2
-                    border
-                    rounded-md
-                    border-coolGray-300
-                    bg-coolGray-50
-                    text-coolGray-800"
             id="txtEmail"
+            class="
+              w-full
+              px-3
+              py-2
+              border
+              rounded-md
+              border-coolGray-300
+              bg-coolGray-50
+              text-coolGray-800
+            "
             required
           />
-
           <button
-            @click="recoveryPassword()"
+            v-on:click="sendCode"
             class="w-full px-8 py-3 rounded-md btn text-coolGray-50 mt-5"
           >
             Restablecer contraseña
@@ -31,31 +32,31 @@
         </div>
       </form>
     </div>
-    <div></div>
   </div>
 </template>
-<style src="./Style.css"></style>
+
+<!---COMPONENT LOGIC--->
 
 <script setup>
+// HTTP Requests
 import axios from "axios";
-const recoveryPassword = () => {
-  sessionStorage.setItem("emailRecoveryPass",txtEmail.value)
-  console.log(txtEmail.value)
+// Navigation
+import { useRouter } from "vue-router";
+const router = useRouter();
+function sendCode() {
   axios
     .post("http://localhost:8080/RecoveryPassword", {
-      headers: {
-        "Content-type": "application/json",
-      },
-      data: {
-        user_email: txtEmail.value,
-      },
+      headers: { "Content-type": "application/json" },
+      data: { user_email: txtEmail.value }
     })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
+    .then(function (res) {
+      switch (res.data.Response) {
+        case "Recovery Password Sended":
+          sessionStorage.setItem('user_email', txtEmail.value)
+          router.push("/RecoveryPassword2");
+      }
     });
-};
+}
 </script>
+
 

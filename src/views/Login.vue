@@ -94,6 +94,11 @@
 import { useRouter } from "vue-router";
 import axios from "axios";
 import { isAuthenticated } from "../helpers/userAuth";
+import { onMounted } from "@vue/runtime-core";
+onMounted(function(){
+  console.log("MONTADO")
+  isAuthenticated.value = false;
+})
 const router = useRouter();
 const login = () => {
   // console.log("CLICKEASTE ACA" + email.value)
@@ -108,10 +113,16 @@ const login = () => {
         user_password: pass.value,
       },
     })
-    .then(function (response) {
-      sessionStorage.setItem('user_rut',response.data);
-      isAuthenticated.value = true;
-      router.push("/");
+    .then(function (res) {
+      switch (res.data.Response) {
+        case 'Login Success':
+          sessionStorage.setItem("user_rut", res.data.user_rut);
+          isAuthenticated.value = true;
+          router.push("/");
+          break
+        case 'Login Failed':
+          alert("Autentificación fallida, comprueba tu dirección de correo electronico o contraseña")
+      }
     })
     .catch(function (error) {
       console.log(error);

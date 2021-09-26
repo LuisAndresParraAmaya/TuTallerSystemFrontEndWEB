@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-
 import Home from './views/Home.vue'
 import About from './views/Login.vue'
 import CreateAccount from './views/CreateAccount.vue'
@@ -25,9 +24,7 @@ const routes = [
     {path: '/RecoveryPassword2', component: RecoveryPassword2 },
     {path: '/RecoveryPassword3', component: RecoveryPassword3 },
     {path: '/RealizePostulation', component: RealizePostulation }
-    
 ]
-
 export const router = createRouter({
     history:createWebHistory(),
     routes

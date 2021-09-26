@@ -26,6 +26,12 @@
 import { useRouter } from "vue-router";
 import axios from "axios";
 const router = useRouter();
+import { onMounted } from "@vue/runtime-core";
+import { isAuthenticated } from "../../helpers/userAuth";
+onMounted(function(){
+  console.log("MONTADO")
+  isAuthenticated.value = true;
+})
 function disableAccount() {
   axios
     .post("http://localhost:8080/DisableAccount", {
@@ -40,9 +46,11 @@ function disableAccount() {
     .then(function (response) {
       console.log(response)
       if (response.data.Response == "Operation Success") {
+        isAuthenticated.value = false
         alert("Su cuenta ha sido deshabilitada satisfactoriamente, tiene 30 dias para volver a iniciar sesión y reactivarla");
-        // isAuthenticated.value = false
-        router.push("/")
+        router.push("/Login")
+      }else{
+         alert("Contraseña ingresada incorrectamente");
       }
     })
     .catch(function (error) {
