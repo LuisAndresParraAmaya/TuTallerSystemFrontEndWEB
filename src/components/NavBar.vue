@@ -36,6 +36,3 @@
         </div>
     </div>
 </template>
-<script setup>
-import { isAuthenticated } from '../helpers/userAuth.js'
-</script>
