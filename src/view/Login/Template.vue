@@ -68,7 +68,7 @@
             <div class="space-y-2">
               <div>
                 <button
-                  @click="login()"
+                  v-on:click="login"
                   class="w-full px-8 py-3 rounded-md btn text-coolGray-50"
                 >
                   Iniciar sesión
@@ -90,40 +90,4 @@
     </div>
   </div>
 </template>
-<script setup>
-import { useRouter } from "vue-router";
-import axios from "axios";
-import { isAuthenticated } from "../../helpers/userAuth";
-import { onMounted } from "@vue/runtime-core";
-onMounted(function(){
-  console.log("MONTADO")
-  isAuthenticated.value = false;
-})
-const router = useRouter();
-const login = () => {
-  axios
-    .post("http://localhost:8080/Login", {
-      headers: {
-        "Content-type": "application/json",
-      },
-      data: {
-        user_email: email.value,
-        user_password: pass.value,
-      },
-    })
-    .then(function (res) {
-      switch (res.data.Response) {
-        case 'Login Success':
-          sessionStorage.setItem("user_rut", res.data.user_rut);
-          isAuthenticated.value = true;
-          router.push("/");
-          break
-        case 'Login Failed':
-          alert("Autentificación fallida, comprueba tu dirección de correo electronico o contraseña")
-      }
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-};
-</script>
+<script src="../../view/Login/Logic.js"></script>
