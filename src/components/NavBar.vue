@@ -23,9 +23,10 @@
                         @click="isAuthenticated = false"
                     >Modificar Perfil</router-link>
                     <router-link
-                        to="/myServices"
+                        to="/ListPostulation"
                         class="btn btn-ghost btn-sm rounded-btn"
-                    >Mis Servicios</router-link>
+                        @click="isAuthenticated = false"
+                    >Listar Talleres Postulados</router-link>
                     <router-link
                         to="/Login"
                         class="btn btn-error btn-sm rounded-btn"
@@ -36,3 +37,6 @@
         </div>
     </div>
 </template>
+<script setup>
+import { isAuthenticated } from "../helpers/userAuth"
+</script>
