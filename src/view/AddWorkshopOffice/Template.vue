@@ -39,7 +39,7 @@
             <span class="label-text">Horario de atención de sucursal</span>
           </label>
           <input
-            type="datetime"
+            type="text"
             class="input input-bordered"
             id="txtAtention"
             required
