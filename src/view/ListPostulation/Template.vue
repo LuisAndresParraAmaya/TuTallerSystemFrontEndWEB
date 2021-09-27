@@ -1,9 +1,9 @@
 <template>
-
-<div class="overflow-x-auto">
-  <table class="table w-full">
-    <thead>
-      <tr>
+<div class="grid grid-cols-1 content-center m-0 md:m-16">
+<div class="w-full overflow-x-auto">
+  <table class="w-full">
+    <thead class="">
+      <tr class="text-left border-b-2 border-black ">
         <th></th> 
         <th>Nombre</th> 
         <th>Contacto</th> 
@@ -12,23 +12,47 @@
       </tr>
     </thead> 
     <tbody>
-      <tr class="">
-        <th>1</th> 
-        <td>Taller Tuercas</td> 
-        <td>920012610</td> 
-        <td>Pendiente</td>
-        <td><button class="btn btn-success">Ver Más</button></td>
+      <tr v-for="list in lista" :key="list" class="border-b">
+        <td></td> 
+        <td>{{list.name}}</td> 
+        <td>{{list.contact}}</td> 
+        <td>{{list.state}}</td> 
+        <td><button class=" btn btn-success rounded-full">Ver Más</button></td>
       </tr>
     </tbody>
   </table>
-  {{lista}}
+  
 </div>
+</div>
+
 </template>
-<script setup>
+<!-- <script setup>
+
+
 const lista = [
     { name: 'Tuercas', contact: 920012610, status: 'Pendiente'},
     { name: 'Tio Manolo', contact: 954012610, status: 'Aceptado'},
     { name: 'El Agujon', contact: 98781510, status: 'Aceptado'},
     { name: 'Tio Mario', contact: 928112610, status: 'Rechazado'}
 ]
+</script> -->
+<script>
+import { ref } from 'vue';
+
+export default {
+    name: 'App',
+    setup() {
+        
+        const lista = ref([
+            { name: 'Frank', contact: 'Murphy', state: 'frank.murphy@test.com'},
+            { name: 'Frank', contact: 'Murphy', state: 'frank.murphy@test.com'},
+            { name: 'Frank', contact: 'Murphy', state: 'frank.murphy@test.com'},
+            { name: 'Frank', contact: 'Murphy', state: 'frank.murphy@test.com'}
+        ]);
+
+        return {
+            lista
+        };
+    }
+}
 </script>
