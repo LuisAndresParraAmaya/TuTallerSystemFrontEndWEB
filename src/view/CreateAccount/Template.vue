@@ -2,7 +2,7 @@
   <div class="grid grid-cols-1 md:grid-cols-3 content-center text-center p-3">
     <div></div>
     <div>
-      <h1 class="my-3 text-4xl font-bold">Postular taller</h1>
+      <h1 class="my-3 text-4xl font-bold">Crear Cuenta</h1>
       <form class="mt-12">
         <div class="form-control">
           <label class="label">
