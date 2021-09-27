@@ -3,7 +3,6 @@ import Home from './view/Home/Template.vue'
 import Login from './view/Login/Template.vue'
 import CreateAccount from './view/CreateAccount/Template.vue'
 import ModifyProfile from './view/ModifyProfile/Template.vue'
-import AddWorkshopOffices from './view/AddWorkshopOffices/Template.vue'
 import ChangePassword from './view/ChangePassword/Template.vue'
 import DeleteAccount from './view/DeleteAccount/Template.vue'
 import RecoveryPassword from './view/RecoveryPassword/Template.vue'
@@ -12,12 +11,12 @@ import RecoveryPassword3 from './view/RecoveryPassword/Template3.vue'
 import RealizePostulation from './view/RealizePostulation/Template.vue'
 import ListPostulation from './view/ListPostulation/Template.vue'
 import AddWorkshopOffice from './view/AddWorkshopOffice/Template.vue'
+import RefuseWorkshop from './view/RefuseWorkshop/Template.vue'
 const routes = [
     {path: '/', component: Home },
     {path: '/Login', component: Login },
     {path: '/CreateAccount', name:'ModifyProfile', component: CreateAccount },
     {path: '/ModifyProfile', component: ModifyProfile },
-    {path: '/AddWorkshopOffices', component: AddWorkshopOffices },
     {path: '/ChangePassword', component: ChangePassword },
     {path: '/DeleteAccount', component: DeleteAccount },
     {path: '/RecoveryPassword', component: RecoveryPassword },
@@ -25,7 +24,8 @@ const routes = [
     {path: '/RecoveryPassword3', component: RecoveryPassword3 },
     {path: '/RealizePostulation', component: RealizePostulation },
     {path: '/ListPostulation', component: ListPostulation},
-    {path: '/AddWorkshopOffice', component: AddWorkshopOffice}
+    {path: '/AddWorkshopOffice', component: AddWorkshopOffice},
+    {path: '/RefuseWorkshop', component: RefuseWorkshop}
 ]
 export const router = createRouter({
     history:createWebHistory(),
