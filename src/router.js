@@ -11,6 +11,7 @@ import RecoveryPassword2 from './view/RecoveryPassword/Template2.vue'
 import RecoveryPassword3 from './view/RecoveryPassword/Template3.vue'
 import RealizePostulation from './view/RealizePostulation/Template.vue'
 import ListPostulation from './view/ListPostulation/Template.vue'
+import AddWorkshopOffice from './view/AddWorkshopOffice/Template.vue'
 const routes = [
     {path: '/', component: Home },
     {path: '/Login', component: Login },
@@ -23,7 +24,8 @@ const routes = [
     {path: '/RecoveryPassword2', component: RecoveryPassword2 },
     {path: '/RecoveryPassword3', component: RecoveryPassword3 },
     {path: '/RealizePostulation', component: RealizePostulation },
-    {path: '/ListPostulation', component: ListPostulation}
+    {path: '/ListPostulation', component: ListPostulation},
+    {path: '/AddWorkshopOffice', component: AddWorkshopOffice}
 ]
 export const router = createRouter({
     history:createWebHistory(),
