@@ -12,6 +12,7 @@ import RealizePostulation from './view/RealizePostulation/Template.vue'
 import ListPostulation from './view/ListPostulation/Template.vue'
 import AddWorkshopOffice from './view/AddWorkshopOffice/Template.vue'
 import RefuseWorkshop from './view/RefuseWorkshop/Template.vue'
+import SeeMore from './view/SeeMore/Template.vue'
 const routes = [
     {path: '/', component: Home },
     {path: '/Login', component: Login },
@@ -25,7 +26,8 @@ const routes = [
     {path: '/RealizePostulation', component: RealizePostulation },
     {path: '/ListPostulation', component: ListPostulation},
     {path: '/AddWorkshopOffice', component: AddWorkshopOffice},
-    {path: '/RefuseWorkshop', component: RefuseWorkshop}
+    {path: '/RefuseWorkshop', component: RefuseWorkshop},
+    {path: '/SeeMore', component: SeeMore}
 ]
 export const router = createRouter({
     history:createWebHistory(),
