@@ -27,7 +27,7 @@ const routes = [
     {path: '/ListPostulation', component: ListPostulation},
     {path: '/AddWorkshopOffice', component: AddWorkshopOffice},
     {path: '/RefuseWorkshop', component: RefuseWorkshop},
-    {path: '/SeeMore', component: SeeMore}
+    {path: '/SeeMore', name:'WorkshopPostulation', component: SeeMore}
 ]
 export const router = createRouter({
     history:createWebHistory(),
