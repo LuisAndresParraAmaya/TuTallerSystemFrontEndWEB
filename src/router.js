@@ -9,10 +9,15 @@ import RecoveryPassword from './view/RecoveryPassword/Template.vue'
 import RecoveryPassword2 from './view/RecoveryPassword/Template2.vue'
 import RecoveryPassword3 from './view/RecoveryPassword/Template3.vue'
 import RealizePostulation from './view/RealizePostulation/Template.vue'
-import ListPostulation from './view/ListPostulation/Template.vue'
+import ListPostulation from './view/ListPostulation/Table.vue'
 import AddWorkshopOffice from './view/AddWorkshopOffice/Template.vue'
 import RefuseWorkshop from './view/RefuseWorkshop/Template.vue'
 import SeeMore from './view/SeeMore/Template.vue'
+import MyWorkshopList from './view/MyWorkshopList/Template.vue'
+import MyWorkshop from './view/MyWorkshop/Template.vue'
+import MyWorkshopOfficeList from './view/MyWorkshopOfficeList/Template.vue'
+import MyWorkshopOffice from './view/MyWorkshopOffice/Template.vue'
+import RegisterEmployee from './view/RegisterEmployee/Template.vue'
 const routes = [
     {path: '/', component: Home },
     {path: '/Login', component: Login },
@@ -27,7 +32,12 @@ const routes = [
     {path: '/ListPostulation', component: ListPostulation},
     {path: '/AddWorkshopOffice', component: AddWorkshopOffice},
     {path: '/RefuseWorkshop', component: RefuseWorkshop},
-    {path: '/SeeMore', name:'WorkshopPostulation', component: SeeMore}
+    {path: '/SeeMore', name:'WorkshopPostulation', component: SeeMore},
+    {path: '/MyWorkshopList', name:'MyWorkshopList', component: MyWorkshopList},
+    {path: '/MyWorkshop', name:'MyWorkshop', component: MyWorkshop},
+    {path: '/MyWorkshopOfficeList', name:'MyWorkshopOfficeList', component: MyWorkshopOfficeList},
+    {path: '/MyWorkshopOffice', name:'MyWorkshopOffice', component: MyWorkshopOffice},
+    {path: '/RegisterEmployee', name:'RegisterEmployee', component: RegisterEmployee}
 ]
 export const router = createRouter({
     history:createWebHistory(),
