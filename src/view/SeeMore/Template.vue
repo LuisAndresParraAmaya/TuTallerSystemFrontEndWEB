@@ -1,6 +1,8 @@
 <template>
-  <div class="grid grid-cols-1 lg:grid-cols-4 p-2 place-items-center">
-    <div class="lg:col-span-2 lg:col-start-2 px-12">
+  <div class="grid grid-cols-1 lg:grid-cols-4 p-1 place-items-center">
+    <div></div>
+
+    <div class="lg:col-start-2 lg:col-span-2">
       <h1 class="my-3 text-4xl font-bold text-center mb-20">{{ name }}</h1>
       <form @submit.prevent>
         <div class="flex place-items-center">
@@ -8,7 +10,7 @@
             <label class="label">Descripción:</label>
           </div>
           <div class="w-full">
-            <label class="label-text">{{description}} Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore quos, quas aut animi quae amet eum, ipsam quia fugiat at perferendis ea quo distinctio nobis dolor earum autem cumque? Reprehenderit?</label>
+            <label class="label-text">{{description}}</label>
           </div>
         </div>
         <div class="flex place-items-center">
@@ -45,7 +47,7 @@
         </div>
         <div class="flex place-items-center">
           <div class="w-1/4">
-            <label class="label">Razón de rechazo:</label>
+            <label class="label text-c">Razón de rechazo:</label>
           </div>
           <div class="w-full">
             <textarea
@@ -67,13 +69,15 @@
 
           <button
             v-on:click="AcceptWorkshopPostulation()"
-            class="w-auto btn rounded-md bg-green-600 text-coolGray-50 mt-5"
+            class="w-full btn rounded-md bg-green-600 text-coolGray-50 mt-5"
           >
             Aceptar
           </button>
         </div>
       </form>
     </div>
+    <div></div>
+    <div></div>
   </div>
 </template>
 <script>
