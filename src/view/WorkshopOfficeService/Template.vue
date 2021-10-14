@@ -11,7 +11,7 @@
           <input
             type="text"
             class="input input-bordered"
-            id="workshopoffice_name"
+            id="txtService"
             required
           />
 
@@ -21,7 +21,7 @@
           <input
             type="number"
             class="input input-bordered"
-            id="workshopofficeservice_price"
+            id="txtPrice"
             required
           />
 
@@ -29,9 +29,9 @@
             <span class="label-text">Tiempo estimado:</span>
           </label>
           <input
-            type="date"
+            type="text"
             class="input input-bordered"
-            id="workshopofficeservice_time"
+            id="txtTime"
             required
           />
 
@@ -41,7 +41,7 @@
           <textarea style="resize:none"
             class="input-bordered textarea"
             name="descriptionArea"
-            id="workshopofficeservice_description"
+            id="txtDescription"
             cols="30"
             rows="5"
           ></textarea>
@@ -50,7 +50,7 @@
           
 
           <button
-            v-on:click="sendPostulation"
+            v-on:click="registerService"
             class="w-full px-8 py-3 rounded-md btn text-coolGray-50 mt-5"
           >
             Añadir servicio
@@ -61,3 +61,24 @@
     <div></div>
   </div>
 </template>
+<script setup>
+import axios from 'axios'
+async function registerService(){
+    await axios.post("http://localhost:8080/AddWorkshopOfficeService", {
+          headers: { "Content-type": "application/json" },
+          data: {
+            workshop_office_id: sessionStorage.getItem('workshop_office_id'),
+            offer_id: 1,
+            workshop_office_service_name: txtService.value,
+            workshop_office_service_price: txtPrice.value,
+            workshop_office_service_estimated_time: txtTime.value,
+            workshop_office_service_description: txtDescription.value
+          }
+        }).then(function (res) {
+          if(res.data.Response === 'Operation Success'){
+            alert("El servicio automotriz fue registrado exitosamente")
+          }
+        })
+}
+
+</script>

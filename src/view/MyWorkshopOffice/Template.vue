@@ -71,7 +71,7 @@
           </div>
           <div>
             <button
-              v-on:click="NavigationToRoute()"
+              v-on:click="NavigationToRoute('WorkshopOfficeService')"
               class="w-full px-8 py-3 rounded-md btn text-coolGray-50 mt-5"
             >
               Servicios Automotrices

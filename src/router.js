@@ -19,6 +19,7 @@ import MyWorkshopOfficeList from './view/MyWorkshopOfficeList/Template.vue'
 import MyWorkshopOffice from './view/MyWorkshopOffice/Template.vue'
 import RegisterEmployee from './view/RegisterEmployee/Template.vue'
 import ModifyWorkShopOffice from './view/ModifyWorkshopOffice/Template.vue'
+import WorkshopOfficeService from './view/WorkshopOfficeService/Template.vue'
 const routes = [
     {path: '/', component: Home },
     {path: '/Login', component: Login },
@@ -39,7 +40,8 @@ const routes = [
     {path: '/MyWorkshopOfficeList', name:'MyWorkshopOfficeList', component: MyWorkshopOfficeList},
     {path: '/MyWorkshopOffice', name:'MyWorkshopOffice', component: MyWorkshopOffice},
     {path: '/RegisterEmployee', name:'RegisterEmployee', component: RegisterEmployee},
-    {path: '/ModifyWorkshopOffice', name:'ModifyWorkshopOffice', component: ModifyWorkShopOffice}
+    {path: '/ModifyWorkshopOffice', name:'ModifyWorkshopOffice', component: ModifyWorkShopOffice},
+    {path: '/WorkshopOfficeService', name:'WorkshopOfficeService', component: WorkshopOfficeService}
 ]
 export const router = createRouter({
     history:createWebHistory(),

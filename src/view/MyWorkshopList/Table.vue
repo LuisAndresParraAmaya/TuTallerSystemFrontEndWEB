@@ -17,7 +17,7 @@
           <tbody>
             <tr v-for="workshop in workshops" :key="workshop">
               <td>{{ workshop.workshop_name }}</td>
-              <td>{{ workshop.workshop_number }} {{ workshop.workshop_description }}</td>
+              <td>{{ workshop.workshop_number }}</td>
               <td>
                 <button 
                   v-on:click="NavigateToRoute('MyWorkshopOfficeList', workshop.workshop_id)"

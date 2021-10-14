@@ -1,9 +1,8 @@
 <template>
-  <div class="grid grid-cols-1 md:grid-cols-3 content-center text-center p-3">
-    <div></div>
-    <div>
-      <h1 class="my-3 text-4xl font-bold">Registrar empleado</h1>
-      <form @submit.prevent class="mt-12">
+<div style="display:flex; justify-content: center">
+<div class="border mockup-window bg-base-300" style="width: 35%;">
+       <h1 class="my-3 text-4xl font-bold text-center">Registrar empleado</h1>
+      <form @submit.prevent class="mt-12 p-12">
         <div class="form-control">
           <label class="label">
             <span class="label-text">Especialización</span>
@@ -32,15 +31,37 @@
             id="txtRut"
             required
           />
-          
-          <button
-            class="w-full px-8 py-3 rounded-md btn text-coolGray-50 mt-5"
-          >
+
+          <button v-on:click="registerEmployee" class="w-full px-8 py-3 rounded-md btn text-coolGray-50 mt-5">
             Registrar Empleado
           </button>
         </div>
       </form>
-    </div>
-    <div></div>
+</div>
   </div>
 </template>
+<script setup>
+import { useRoute } from "vue-router";
+import axios from 'axios'
+const router = useRoute();
+;
+async function registerEmployee() {
+  await axios
+    .post("http://localhost:8080/AddWorkshopOfficeEmployee", {
+      headers: { "Content-type": "application/json" },
+      data: { workshop_office_id: router.params.workshop_office_id,
+       user_rut: txtRut.value,
+       workshop_office_employee_specialization: selectEsp.value,
+       workshop_office_employee_experience: txtExperience.value  
+      }
+    })
+    .then(function (res) {
+      if(res.data.Response === 'Operation Success'){
+        alert("Se registro al empleado exitosamente")
+      }
+      if(res.data.Response === 'Rut not exist'){
+        alert("El rut no corresponde a ningun usuario registrado")
+      }
+    });
+}
+</script>
