@@ -1,10 +1,9 @@
 <template>
-  <div class="grid grid-cols-1 lg:grid-cols-4 p-1 place-items-center">
-    <div></div>
-
-    <div class="lg:col-start-2 lg:col-span-2">
-      <h1 class="my-3 text-4xl font-bold text-center mb-20">{{ name }}</h1>
-      <form @submit.prevent>
+<div style="display:flex; justify-content: center">
+<div class="border mockup-window bg-base-300" style="width: 65%;">
+  <h1 style="text-align: center; font-size: 45px; margin-bottom: 3%" >Taller {{ name }}</h1>
+  <div class="bg-base-200">
+      <form @submit.prevent style="padding: 5%; margin-left: 23%">
         <div class="flex place-items-center">
           <div class="w-1/4">
             <label class="label">Descripción:</label>
@@ -46,28 +45,16 @@
           </div>
         </div>
         <div class="flex place-items-center">
-          <div class="w-1/4">
-            <label class="label text-c">Razón de rechazo:</label>
-          </div>
-          <div class="w-full">
-            <textarea
-              id="reject_reason"
-              class="input-bordered textarea w-full"
-              cols="30"
-              rows="5"
-              style="resize: none"
-            ></textarea>
-          </div>
         </div>
-        <div class="flex place-content-between ">
-          <button
+        <div>
+          <button style="width: 30%"
             v-on:click="RejectWorkshopPostulation()"
             class="w-auto rounded-md bg-red-600 btn text-coolGray-50 mt-5"
           >
             Rechazar
           </button>
 
-          <button
+          <button style="width: 30%; margin-left: 5%"
             v-on:click="AcceptWorkshopPostulation()"
             class="w-full btn rounded-md bg-green-600 text-coolGray-50 mt-5"
           >
@@ -75,12 +62,13 @@
           </button>
         </div>
       </form>
-    </div>
-    <div></div>
-    <div></div>
   </div>
+</div>
+</div>
 </template>
 <script>
+import { formatDateTime } from '../../utils/formaters';
+import { statusEnglishToSpanish } from '../../utils/translations';
 import axios from "axios";
 import { useRoute } from "vue-router";
 export default {
@@ -108,6 +96,11 @@ export default {
         });
     }
     async function RejectWorkshopPostulation() {
+      const response = prompt("Porfavor ingresa la razón del rechazo");
+      if(response.trim().length == 0){
+        alert("Debes dar una razón de rechazo")
+        return
+      }
       await axios
         .post("http://localhost:8080/RejectWorkshopPostulation", {
           headers: { "Content-type": "application/json" },
@@ -126,13 +119,14 @@ export default {
     }
     return {
       name,
-      status,
-      time,
+      status: statusEnglishToSpanish(status),
+      time: formatDateTime(time),
       contact,
       description,
       message,
       AcceptWorkshopPostulation,
       RejectWorkshopPostulation,
+      formatDateTime
     };
   },
 };

@@ -3,24 +3,38 @@ import { isAuthenticated } from "../../helpers/userAuth"
 export default {
   name: 'Login',
   setup() {
-    let statusLogin = false
-    //Methods:
     async function login() {
+      if(email.value.trim().length == 0){
+        alert("debes ingresar tu dirección de correo electronico")
+        return
+      }
+      if(pass.value.trim().length == 0){
+        alert("debes ingresar tu contraseña")
+        return
+      }
       await axios.post("http://localhost:8080/Login", {
           headers: { "Content-type": "application/json" },
-          data: { user_email: email.value, user_password: pass.value },
+          data: { user_email: email.value, user_password: pass.value  },
         }).then(function (res) {
           if(res.data.Response == 'Login Success'){
             sessionStorage.setItem("user_rut", res.data.user_rut);
-            statusLogin = true
-          }else{
+            sessionStorage.setItem("user_name", res.data.user_name);
+            sessionStorage.setItem("user_last_name", res.data.user_last_name);
+            sessionStorage.setItem("user_phone", res.data.user_phone);
+            sessionStorage.setItem("user_email", res.data.user_email);
+            sessionStorage.setItem("user_password", res.data.user_password);
+            isAuthenticated.value = true;
+          }
+          if(res.data.Response == 'Account disabled'){
+            alert("Su cuenta se encuentra deshabilitada")
+          }
+          if(res.data.Response == 'Login Failed'){
             alert("Autentificación fallida, comprueba tu dirección de correo electronico o contraseña")
           }
         }).catch(function (error) {
           console.log(error);
         });
-        if(statusLogin == true){
-          isAuthenticated.value = true;
+        if(isAuthenticated.value == true){
           this.$router.push({ path: '/' })
         }
     }

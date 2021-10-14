@@ -1,9 +1,8 @@
 <template>
-  <div class="grid grid-cols-1 md:grid-cols-3 content-center text-center p-3">
-    <div></div>
-    <div>
-      <h1 class="my-3 text-4xl font-bold">Postular taller</h1>
-      <form @submit.prevent class="mt-12">
+<div style="display:flex; justify-content: center">
+<div class="border mockup-window bg-base-300" style="width: 65%;">
+      <h1 class="my-3 text-4xl text-center font-bold">Postular taller</h1>
+      <form @submit.prevent class="mt-12 ml-12" style="width: 75%">
         <div class="form-control">
           <label class="label">
             <span class="label-text">Nombre taller </span>
@@ -12,18 +11,24 @@
             type="text"
             class="input input-bordered"
             id="workshop_name"
-            required
+            
           />
-
+          <br>
           <label class="label">
             <span class="label-text">Telefono</span>
           </label>
-          <input
+          <div style="display:flex">
+           <select>
+              <option>+56 Chile</option>
+            </select>
+
+          <input style="width: 500px"
             type="number"
             class="input input-bordered"
             id="workshop_number"
-            required
+            
           />
+          </div>
 
           <label class="label">
             <span class="label-text">Descripción del taller</span>
@@ -55,9 +60,8 @@
           </button>
         </div>
       </form>
-    </div>
-    <div></div>
-  </div>
+</div>
+</div>
 </template>
 <script src="./Logic.js"></script>
 

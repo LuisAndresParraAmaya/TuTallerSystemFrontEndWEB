@@ -1,16 +1,15 @@
 <template>
-  <div class="grid grid-cols-1 md:grid-cols-3 content-center p-3">
-    <div></div>
-    <div>
-      <h1 class="my-3 text-4xl font-bold text-center mb-20">
-        Recuperar contraseña
-      </h1>
+<div style="display:flex; justify-content: center">
+<div class="border mockup-window bg-base-300" style="width: 65%;">
+<h1 style="text-align: center; font-size: 45px; margin-bottom: 3%" >Recuperar contraseña</h1>
+  <div class="bg-base-200 flex justify-center">
+    <div class=" mt-6 mb-10" style="width: 45%">
       <span class="label-text"
         >Si la dirección de correo electrónico ingresada coincide con tu
         usuario, te enviaremos un código.</span
       >
       <form @submit.prevent>
-        <div class="form-control mt-14">
+        <div class="form-control mt-6">
           <label class="label">
             <span class="label-text">Codigo de verificacion </span>
           </label>
@@ -29,8 +28,9 @@
         </div>
       </form>
     </div>
-    <div></div>
   </div>
+   </div>
+    </div>
 </template>
 
 <!---COMPONENT LOGIC--->
@@ -42,6 +42,10 @@ import axios from "axios";
 import { useRouter } from "vue-router";
 const router = useRouter();
 function verifyCode() {
+  if(txtCode.value.trim().length == 0){
+    alert('debe rellenar el campo codigo de verificación')
+    return
+  }
   axios
     .post("http://localhost:8080/SendCode", {
       headers: { "Content-type": "application/json" },

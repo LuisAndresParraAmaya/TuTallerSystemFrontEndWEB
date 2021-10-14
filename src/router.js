@@ -9,7 +9,7 @@ import RecoveryPassword from './view/RecoveryPassword/Template.vue'
 import RecoveryPassword2 from './view/RecoveryPassword/Template2.vue'
 import RecoveryPassword3 from './view/RecoveryPassword/Template3.vue'
 import RealizePostulation from './view/RealizePostulation/Template.vue'
-import ListPostulation from './view/ListPostulation/Table.vue'
+import ListPostulation from './view/ListPostulation/Template.vue'
 import AddWorkshopOffice from './view/AddWorkshopOffice/Template.vue'
 import RefuseWorkshop from './view/RefuseWorkshop/Template.vue'
 import SeeMore from './view/SeeMore/Template.vue'
@@ -18,7 +18,7 @@ import MyWorkshop from './view/MyWorkshop/Template.vue'
 import MyWorkshopOfficeList from './view/MyWorkshopOfficeList/Template.vue'
 import MyWorkshopOffice from './view/MyWorkshopOffice/Template.vue'
 import RegisterEmployee from './view/RegisterEmployee/Template.vue'
-import WorkshopOfficeService from './view/WorkshopOfficeService/Template.vue'
+import ModifyWorkShopOffice from './view/ModifyWorkshopOffice/Template.vue'
 const routes = [
     {path: '/', component: Home },
     {path: '/Login', component: Login },
@@ -29,9 +29,9 @@ const routes = [
     {path: '/RecoveryPassword', component: RecoveryPassword },
     {path: '/RecoveryPassword2', component: RecoveryPassword2 },
     {path: '/RecoveryPassword3', component: RecoveryPassword3 },
-    {path: '/RealizePostulation', component: RealizePostulation },
-    {path: '/ListPostulation', component: ListPostulation},
-    {path: '/AddWorkshopOffice', component: AddWorkshopOffice},
+    {path: '/RealizePostulation', name:'RealizePostulation', component: RealizePostulation },
+    {path: '/ListPostulation', name:'ListPostulation', component: ListPostulation},
+    {path: '/AddWorkshopOffice', name:'AddWorkshopOffice', component: AddWorkshopOffice},
     {path: '/RefuseWorkshop', component: RefuseWorkshop},
     {path: '/SeeMore', name:'WorkshopPostulation', component: SeeMore},
     {path: '/MyWorkshopList', name:'MyWorkshopList', component: MyWorkshopList},
@@ -39,7 +39,7 @@ const routes = [
     {path: '/MyWorkshopOfficeList', name:'MyWorkshopOfficeList', component: MyWorkshopOfficeList},
     {path: '/MyWorkshopOffice', name:'MyWorkshopOffice', component: MyWorkshopOffice},
     {path: '/RegisterEmployee', name:'RegisterEmployee', component: RegisterEmployee},
-    {path: '/WorkshopOfficeService', name:'WorkshopOfficeService', component: WorkshopOfficeService}
+    {path: '/ModifyWorkshopOffice', name:'ModifyWorkshopOffice', component: ModifyWorkShopOffice}
 ]
 export const router = createRouter({
     history:createWebHistory(),

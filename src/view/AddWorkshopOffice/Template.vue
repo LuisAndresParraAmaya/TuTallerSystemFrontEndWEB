@@ -1,11 +1,221 @@
 <template>
-  <div class="grid grid-cols-1 place-items-center">
+<div style="display:flex; justify-content: center">
+<div class="border mockup-window bg-base-300" style="width: 65%;">
+        <h1 class="my-3 text-4xl font-bold text-center mb-16">
+        Agregar sucursal
+      </h1>
     <div>
-      <form @submit.prevent>
-        <div>
-          <h1 class="my-3 text-4xl font-bold text-center mb-16">
+      <form @submit.prevent class="m-14">
+        <div class="form-control mt-14">
+          <label class="label">
+            <span class="label-text">Región de sucursal</span>
+          </label>
+          <select
+            class="select input-bordered"
+            name=""
+            id="selectRegion"
+            required
+          >
+            <option selected>REGION METROPOLITANA</option>
+          </select>
+          <label class="label">
+            <span class="label-text">Comuna de sucursal</span>
+          </label>
+          <select
+            class="select input-bordered"
+            name=""
+            id="selectCommune"
+            required
+          >
+            <option selected>SANTIAGO</option>
+          </select>
+          <label class="label">
+            <span class="label-text">Dirección de sucursal</span>
+          </label>
+          <input
+            type="text"
+            class="input input-bordered"
+            id="txtAddress"
+            required
+          />
+
+          <label class="label">
+            <span class="label-text">Teléfono de sucursal</span>
+          </label>
+          <input
+            type="number"
+            class="input input-bordered"
+            id="txtPhone"
+            required
+          />
+          <label class="label">
+            <span class="label-text">Horario de atención de sucursal</span>
+          </label>
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <label class="cursor-pointer label">
+                    <span class="label-text">Lunes</span>
+                    <input
+                      id="cbxMonday"
+                      type="checkbox"
+                      class="toggle toggle-primary"
+                    />
+                    <input
+                      type="time"
+                      class="input input-bordered w-auto"
+                      id="timeApertureMonday"
+                    />Hasta las
+                    <input
+                      type="time"
+                      class="input input-bordered w-auto"
+                      id="timeDepartureMonday"
+                    />
+                  </label>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <label class="cursor-pointer label">
+                    <span class="label-text">Martes</span>
+                    <input
+                      id="cbxTuesday"
+                      type="checkbox"
+                      class="toggle toggle-primary ml-3"
+                    />
+                    <input
+                      type="time"
+                      class="input input-bordered w-auto"
+                      id="timeApertureTuesday"
+                    />Hasta las
+                    <input
+                      type="time"
+                      class="input input-bordered w-auto"
+                      id="timeDepartureTuesday"
+                    />
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label class="cursor-pointer label">
+                    <span class="label-text">Miercoles</span>
+                    <input
+                      id="cbxWednesday"
+                      type="checkbox"
+                      class="toggle toggle-primary ml-3"
+                    />
+                    <input
+                      type="time"
+                      class="input input-bordered w-auto"
+                      id="timeApertureWednesday"
+                    />Hasta las
+                    <input
+                      type="time"
+                      class="input input-bordered w-auto"
+                      id="timeDepartureWednesday"
+                    />
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label class="cursor-pointer label">
+                    <span class="label-text">Jueves</span>
+                    <input
+                      id="cbxThursday"
+                      type="checkbox"
+                      class="toggle toggle-primary ml-3"
+                    />
+                    <input
+                      type="time"
+                      class="input input-bordered w-auto"
+                      id="timeApertureThursday"
+                    />Hasta las
+                    <input
+                      type="time"
+                      class="input input-bordered w-auto"
+                      id="timeDepartureThursday"
+                    />
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label class="cursor-pointer label">
+                    <span class="label-text">Viernes</span>
+                    <input
+                      id="cbxFriday"
+                      type="checkbox"
+                      class="toggle toggle-primary ml-3"
+                    />
+                    <input
+                      type="time"
+                      class="input input-bordered w-auto"
+                      id="timeApertureFriday"
+                    />Hasta las
+                    <input
+                      type="time"
+                      class="input input-bordered w-auto"
+                      id="timeDepartureFriday"
+                    />
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label class="cursor-pointer label">
+                    <span class="label-text">Sabado</span>
+                    <input
+                      id="cbxSaturday"
+                      type="checkbox"
+                      class="toggle toggle-primary ml-3"
+                    />
+                    <input
+                      type="time"
+                      class="input input-bordered w-auto"
+                      id="timeApertureSaturday"
+                    />Hasta las
+                    <input
+                      type="time"
+                      class="input input-bordered w-auto"
+                      id="timeDepartureSaturday"
+                    />
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label class="cursor-pointer label">
+                    <span class="label-text">Domingo</span>
+                    <input
+                      id="cbxSunday"
+                      type="checkbox"
+                      class="toggle toggle-primary ml-3"
+                    />
+                    <input
+                      type="time"
+                      class="input input-bordered w-auto"
+                      id="timeApertureSunday"
+                    />Hasta las
+                    <input
+                      type="time"
+                      class="input input-bordered w-auto"
+                      id="timeDepartureSunday"
+                    />
+                  </label>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <button
+            v-on:click="getSchedule"
+            class="w-full px-8 py-3 rounded-md btn text-coolGray-50 mt-5"
+          >
             Agregar sucursal
-          </h1>
         </div>
         <div class="mt-14">
           <div class="flex place-items-center">
@@ -238,12 +448,14 @@
         </div>
       </form>
     </div>
-  </div>
+ </div>
 </template>
 <script>
+import { useRoute } from "vue-router";
 import axios from "axios";
 export default {
   setup() {
+    const route = useRoute();
     async function getSchedule() {
       let workshop_office_attention = [];
       // CONDITIONS MONDAY
@@ -422,18 +634,31 @@ export default {
           workshop_office_attention_departure_time: timeDepartureSunday.value,
         });
       }
+      if(workshop_office_attention.length == 0){
+        alert('Debe registrar por lo menos un dia de atención en la sucursal.')
+        return 
+      }
       await axios.post("http://localhost:8080/AddWorkshopOffice", {
         headers: { "Content-type": "application/json" },
         data: {
-          workshop_id: 2,
-          commune_id: 1,
+          workshop_id: route.params.workshop_id,
+          commune_id: 2,
           workshop_suscription_id: 1,
           workshop_office_address: txtAddress.value,
           workshop_office_phone: txtPhone.value,
           ////Informacion relacionada a el horario de atencion
           workshop_office_attention: workshop_office_attention,
         },
-      });
+      }).then(function (res) {
+            if(res.data.Response == 'Office Attention Success'){
+              alert('La sucursal fue registrada con exito')
+            }
+            if(res.data.Response == 'Address already in use'){
+              alert('La dirección ingresada corresponde a otra sucursal')
+            }
+        }).catch(function (error) {
+            console.log(error);
+        });;
     }
     return { getSchedule };
   },
