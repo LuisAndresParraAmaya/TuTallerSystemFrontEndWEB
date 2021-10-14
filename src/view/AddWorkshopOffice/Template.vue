@@ -216,6 +216,7 @@
             class="w-full px-8 py-3 rounded-md btn text-coolGray-50 mt-5"
           >
             Agregar sucursal
+          </button>
         </div>
         <div class="mt-14">
           <div class="flex place-items-center">
@@ -447,6 +448,7 @@
           </div>
         </div>
       </form>
+    </div>
     </div>
  </div>
 </template>
