@@ -1,13 +1,13 @@
 <template>
-  <div class="grid grid-cols-1 content-center m-0 md:m-16">
-    <div class="w-full overflow-x-auto">
+<div style="display:flex; justify-content: center">
+    <div class="overflow-x-auto" style="width: 85%">
       <Suspense>
         <template #default>
           <Table/>
         </template>
       </Suspense>
     </div>
-  </div>
+    </div>
 </template>
 <script>
 import Table from '../../view/ListPostulation/Table.vue'

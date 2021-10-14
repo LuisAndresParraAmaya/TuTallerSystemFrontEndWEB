@@ -1,9 +1,26 @@
 import axios from 'axios'
+import { ValidatelengthTel } from '../../utils/validations'
 export default {
   name: 'RealizePostulation',
   setup() {
     //Methods:
     async function sendPostulation() {
+      const inputs = [
+        {name: 'Nombre taller', value: workshop_name.value},
+        {name: 'Telefono', value: workshop_number.value},
+        {name: 'Descripción taller', value: workshop_description.value},
+        {name: 'Mensaje', value: postulation_message.value}
+      ]
+      for(let input of inputs){
+        if(input.value.trim().length == 0){
+          alert('Debe rellenar el campo: '+input.name)
+          return
+        }
+      }
+      if(!ValidatelengthTel(workshop_number.value)){
+        alert('Debe ingresar el numero de telefono completo, ejemplo: 912345678')
+        return
+      }
       await axios.post("http://localhost:8080/SendPostulation", {
           headers: { "Content-type": "application/json" },
           data: { 

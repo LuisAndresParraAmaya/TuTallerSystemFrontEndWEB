@@ -1,4 +1,6 @@
 import axios from 'axios'
+import { formatDateTime } from '../../utils/formaters';
+import { statusEnglishToSpanish } from '../../utils/translations';
 export default {
     name: 'ListPostulation',
     async setup() {
@@ -15,6 +17,6 @@ export default {
             console.log(user_rut)
             this.$router.push({name: 'WorkshopPostulation', params: { name: name, status: status, time: time, message: message, contact: contact, user_rut: user_rut, description: description, id: id}})
         }
-        return { list, goToWorkshopPostulation};
+        return { list, goToWorkshopPostulation, formatDateTime, statusEnglishToSpanish};
     }
 }

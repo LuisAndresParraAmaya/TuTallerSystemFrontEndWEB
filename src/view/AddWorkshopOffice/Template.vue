@@ -1,12 +1,11 @@
 <template>
-  <div class="grid grid-cols-1 lg:grid-cols-3 w-auto p-4" >
-    <div></div>
-    <div>
-      <h1 class="my-3 text-4xl font-bold text-center mb-16">
+<div style="display:flex; justify-content: center">
+<div class="border mockup-window bg-base-300" style="width: 65%;">
+        <h1 class="my-3 text-4xl font-bold text-center mb-16">
         Agregar sucursal
       </h1>
-
-      <form @submit.prevent>
+    <div>
+      <form @submit.prevent class="m-14">
         <div class="form-control mt-14">
           <label class="label">
             <span class="label-text">Región de sucursal</span>
@@ -221,14 +220,15 @@
         </div>
       </form>
     </div>
-    <div></div>
-  </div>
-  
+ </div>
+ </div>
 </template>
 <script>
+import { useRoute } from "vue-router";
 import axios from "axios";
 export default {
   setup() {
+    const route = useRoute();
     async function getSchedule() {
       let workshop_office_attention = [];
       // CONDITIONS MONDAY
@@ -407,18 +407,31 @@ export default {
           workshop_office_attention_departure_time: timeDepartureSunday.value,
         });
       }
+      if(workshop_office_attention.length == 0){
+        alert('Debe registrar por lo menos un dia de atención en la sucursal.')
+        return 
+      }
       await axios.post("http://localhost:8080/AddWorkshopOffice", {
         headers: { "Content-type": "application/json" },
         data: {
-          workshop_id: 2,
-          commune_id: 1,
+          workshop_id: route.params.workshop_id,
+          commune_id: 2,
           workshop_suscription_id: 1,
           workshop_office_address: txtAddress.value,
           workshop_office_phone: txtPhone.value,
           ////Informacion relacionada a el horario de atencion
           workshop_office_attention: workshop_office_attention
         },
-      });
+      }).then(function (res) {
+            if(res.data.Response == 'Office Attention Success'){
+              alert('La sucursal fue registrada con exito')
+            }
+            if(res.data.Response == 'Address already in use'){
+              alert('La dirección ingresada corresponde a otra sucursal')
+            }
+        }).catch(function (error) {
+            console.log(error);
+        });;
     }
     return { getSchedule };
   },

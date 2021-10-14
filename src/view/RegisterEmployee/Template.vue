@@ -10,7 +10,9 @@
           </label>
           <select class="select select-bordered" required id="selectEsp">
             <option selected></option>
-            <option>Administrador</option>
+            <option>Electricidad Automotriz</option>
+            <option>Pintura Automotriz</option>
+            <option>Técnico General</option>
           </select>
           <label class="label">
             <span class="label-text">Experiencia</span>
