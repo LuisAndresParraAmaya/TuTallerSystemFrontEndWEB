@@ -20,6 +20,13 @@ import MyWorkshopOffice from './view/MyWorkshopOffice/Template.vue'
 import RegisterEmployee from './view/RegisterEmployee/Template.vue'
 import ModifyWorkShopOffice from './view/ModifyWorkshopOffice/Template.vue'
 import WorkshopOfficeService from './view/WorkshopOfficeService/Template.vue'
+import ListWorkshop from './view/ListWorkshop/Template.vue'
+import ReclaimWorkshop from './view/ReclaimWorkshop/Template.vue'
+import ShowWorkshopEmployee from './view/ShowWorkshopEmployee/Template.vue'
+import ListOfficeService from './view/ListOfficeService/Template.vue'
+import WorkshopAds from './view/WorkshopAds/Template.vue'
+import OfferWorkshopService from './view/OfferWorkshopService/Template.vue'
+
 const routes = [
     {path: '/', component: Home },
     {path: '/Login', component: Login },
@@ -41,9 +48,15 @@ const routes = [
     {path: '/MyWorkshopOffice', name:'MyWorkshopOffice', component: MyWorkshopOffice},
     {path: '/RegisterEmployee', name:'RegisterEmployee', component: RegisterEmployee},
     {path: '/ModifyWorkshopOffice', name:'ModifyWorkshopOffice', component: ModifyWorkShopOffice},
-    {path: '/WorkshopOfficeService', name:'WorkshopOfficeService', component: WorkshopOfficeService}
+    {path: '/WorkshopOfficeService', name:'WorkshopOfficeService', component: WorkshopOfficeService},
+    {path: '/ListWorkshop', name:'ListWorkshop', component: ListWorkshop},
+    {path: '/ReclaimWorkshop', name:'ReclaimWorkshop', component: ReclaimWorkshop},
+    {path: '/ShowWorkshopEmployee', name:'ShowWorkshopEmployee', component: ShowWorkshopEmployee},
+    {path: '/ListOfficeService', name:'ListOfficeService', component: ListOfficeService},
+    {path: '/WorkshopAds', name:'WorkshopAds', component: WorkshopAds},
+    {path: '/OfferWorkshopService', name:'OfferWorkshopService', component: OfferWorkshopService}
 ]
 export const router = createRouter({
     history:createWebHistory(),
     routes
-})
+});
