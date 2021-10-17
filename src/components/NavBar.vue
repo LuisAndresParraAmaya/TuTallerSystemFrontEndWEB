@@ -14,11 +14,16 @@
         <!-- <a class="btn btn-ghost btn-sm rounded-btn">Ver Talleres</a> -->
         <!--Todos los que aun no han iniciado sesion-->
         <router-link
+          to="/WorkShopList"
+          ><a class="btn btn-ghost btn-sm rounded-btn mt-2">Ver Sucursales Automotrices</a></router-link
+        >
+        <router-link
           v-show="isAuthenticated == false"
           class="btn btn-success btn-sm rounded-btn"
           to="/Login"
           >Iniciar Sesión</router-link
         >
+        
         <div v-show="isAuthenticated == true">
           <router-link
             to="/ModifyProfile"
