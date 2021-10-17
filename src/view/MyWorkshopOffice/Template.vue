@@ -4,7 +4,7 @@
       <h1 class="my-3 text-4xl font-bold text-center">Sucursal</h1>
       <form @submit.prevent class="mt-12">
         <!-- <div> -->
-          <!-- <div>
+        <!-- <div>
             <label class="label"> Region </label>
 
             <select class="select input-bordered w-72" disabled>
@@ -12,14 +12,14 @@
             </select>
             <button class="btn ml-5" disabled>E</button>
           </div> -->
-          <!-- <div>
+        <!-- <div>
             <label class="label"> Comuna </label>
             <select class="select input-bordered w-72" disabled>
               <option value="puentealto" selected>Santiago</option>
             </select>
             <button class="btn ml-5" disabled>E</button>
           </div> -->
-          <!-- <div>
+        <!-- <div>
             <label class="label"> Dirección </label>
             <input
               type="text"
@@ -30,7 +30,7 @@
             />
             <button class="btn ml-5" disabled>E</button>
           </div> -->
-          <!-- <div>
+        <!-- <div>
             <label class="label"> Telefono </label>
             <input
               type="text"
@@ -41,7 +41,7 @@
             />
             <button class="btn ml-5" disabled>E</button>
           </div> -->
-          <!-- <div>
+        <!-- <div>
             <label class="label"> Horario de atencion </label>
             <input
               type="text"
@@ -52,18 +52,19 @@
             />
             <button class="btn ml-5" disabled>E</button>
           </div> -->
+        <div>
+          <button
+            v-on:click="NavigationToRoute('ModifyWorkshopOffice')"
+            class="w-full px-8 py-3 rounded-md btn text-coolGray-50 mt-5"
+          >
+            Información de la sucursal
+          </button>
+        </div>
+        <div>
           <div>
             <button
-              v-on:click="NavigationToRoute('ModifyWorkshopOffice')"
-              class="w-full px-8 py-3 rounded-md btn text-coolGray-50 mt-5"
-            >
-              Información de la sucursal
-            </button>
-          </div>
-          <div>
-          <div>
-            <button
-              v-on:click="NavigationToRoute('RegisterEmployee')"
+              id="MyWorkshopOffice_btnEmployees"
+              v-on:click="NavigationToRoute('ShowWorkshopEmployee')"
               class="w-full px-8 py-3 rounded-md btn text-coolGray-50 mt-5"
             >
               Empleados
@@ -71,7 +72,7 @@
           </div>
           <div>
             <button
-              v-on:click="NavigationToRoute('WorkshopOfficeService')"
+              v-on:click="NavigationToRoute('WorkShopOfficeServiceList')"
               class="w-full px-8 py-3 rounded-md btn text-coolGray-50 mt-5"
             >
               Servicios Automotrices
@@ -85,12 +86,21 @@
               Suscripción
             </button>
           </div>
-           <div>
+          <div>
             <button
               v-on:click="NavigationToRoute()"
               class="w-full px-8 py-3 rounded-md btn text-coolGray-50 mt-5"
             >
-            Anuncios Publicitarios
+              Anuncios Publicitarios
+            </button>
+          </div>
+          <div>
+            <button
+              id="MyWorkshopOffice_btnEmployees"
+              v-on:click="NavigationToRoute('FileWorkShopOfficeComplaint')"
+              class="w-full px-8 py-3 rounded-md btn text-coolGray-50 mt-5"
+            >
+              RECLAMO
             </button>
           </div>
           <div>
@@ -101,7 +111,7 @@
               Evaluaciones
             </button>
           </div>
-            <!-- <button
+          <!-- <button
             v-on:click="viewWorkshop"
             class="w-full px-8 py-3 rounded-md btn text-coolGray-50 mt-5"
           >

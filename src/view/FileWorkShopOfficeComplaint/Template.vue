@@ -11,7 +11,7 @@ hola
           <div>
             <label class="label">Reclamo:</label>
             <textarea
-              id="reclaimDescription"
+              id="txtReclaim"
               class="px-3
               py-3
               placeholder-gray-400
@@ -32,6 +32,7 @@ hola
           </div>
           <div class="flex place-content-between">
             <button
+              v-on:click="sendReclaim"
               class="w-full py-2 rounded-md bg-green-600 hover:bg-green-700 text-coolGray-50 mt-5"
             >
               Enviar reclamo
@@ -41,3 +42,21 @@ hola
     </div>
   </div>  
 </template>
+<script>
+import axios from 'axios'
+async function sendReclaim(){
+      await axios.post("http://localhost:8080/FileWorkShopOfficeComplaint", {
+          headers: { "Content-type": "application/json" },
+          data: {  
+            workshop_id: sessionStorage.getItem('workshop_id'),
+            workshop_name: sessionStorage.getItem('workshop_name'),
+            workshop_office_region: sessionStorage.getItem('workshop_office_region'),
+            workshop_office_commune: sessionStorage.getItem('workshop_office_commune'),
+            workshop_office_address: sessionStorage.getItem('workshop_office_address'),
+            complaint: txtReclaim.value
+          }
+        }).then(function (res) {
+
+        })
+}
+</script>

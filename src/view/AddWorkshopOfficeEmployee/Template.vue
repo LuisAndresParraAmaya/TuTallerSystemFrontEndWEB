@@ -49,7 +49,7 @@ async function registerEmployee() {
   await axios
     .post("http://localhost:8080/AddWorkshopOfficeEmployee", {
       headers: { "Content-type": "application/json" },
-      data: { workshop_office_id: router.params.workshop_office_id,
+      data: { workshop_office_id: sessionStorage.getItem('workshop_office_id'),
        user_rut: txtRut.value,
        workshop_office_employee_specialization: selectEsp.value,
        workshop_office_employee_experience: txtExperience.value  

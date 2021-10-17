@@ -17,13 +17,13 @@ import MyWorkshopList from './view/MyWorkshopList/Template.vue'
 import MyWorkshop from './view/MyWorkshop/Template.vue'
 import MyWorkshopOfficeList from './view/MyWorkshopOfficeList/Template.vue'
 import MyWorkshopOffice from './view/MyWorkshopOffice/Template.vue'
-import RegisterEmployee from './view/RegisterEmployee/Template.vue'
+import AddWorkshopOfficeEmployee from './view/AddWorkshopOfficeEmployee/Template.vue'
 import ModifyWorkShopOffice from './view/ModifyWorkshopOffice/Template.vue'
 import WorkshopOfficeService from './view/WorkshopOfficeService/Template.vue'
-import ListWorkshop from './view/ListWorkshop/Template.vue'
-import ReclaimWorkshop from './view/ReclaimWorkshop/Template.vue'
+import WorkShopList from './view/WorkShopList/Template.vue'
+import FileWorkShopOfficeComplaint from './view/FileWorkShopOfficeComplaint/Template.vue'
 import ShowWorkshopEmployee from './view/ShowWorkshopEmployee/Template.vue'
-import ListOfficeService from './view/ListOfficeService/Template.vue'
+import WorkShopOfficeServiceList from './view/WorkShopOfficeServiceList/Template.vue'
 import WorkshopAds from './view/WorkshopAds/Template.vue'
 import OfferWorkshopService from './view/OfferWorkshopService/Template.vue'
 
@@ -39,20 +39,22 @@ const routes = [
     {path: '/RecoveryPassword3', component: RecoveryPassword3 },
     {path: '/RealizePostulation', name:'RealizePostulation', component: RealizePostulation },
     {path: '/ListPostulation', name:'ListPostulation', component: ListPostulation},
-    {path: '/AddWorkshopOffice', name:'AddWorkshopOffice', component: AddWorkshopOffice},
     {path: '/RefuseWorkshop', component: RefuseWorkshop},
     {path: '/SeeMore', name:'WorkshopPostulation', component: SeeMore},
     {path: '/MyWorkshopList', name:'MyWorkshopList', component: MyWorkshopList},
     {path: '/MyWorkshop', name:'MyWorkshop', component: MyWorkshop},
     {path: '/MyWorkshopOfficeList', name:'MyWorkshopOfficeList', component: MyWorkshopOfficeList},
     {path: '/MyWorkshopOffice', name:'MyWorkshopOffice', component: MyWorkshopOffice},
-    {path: '/RegisterEmployee', name:'RegisterEmployee', component: RegisterEmployee},
+    //Rutas -> Sucursales
+    {path: '/AddWorkshopOffice', name:'AddWorkshopOffice', component: AddWorkshopOffice},
+    {path: '/AddWorkshopOfficeEmployee', name:'AddWorkshopOfficeEmployee', component: AddWorkshopOfficeEmployee},
+    {path: '/WorkShopOfficeServiceList', name:'WorkShopOfficeServiceList', component: WorkShopOfficeServiceList},
+    /////////////////////
     {path: '/ModifyWorkshopOffice', name:'ModifyWorkshopOffice', component: ModifyWorkShopOffice},
     {path: '/WorkshopOfficeService', name:'WorkshopOfficeService', component: WorkshopOfficeService},
-    {path: '/ListWorkshop', name:'ListWorkshop', component: ListWorkshop},
-    {path: '/ReclaimWorkshop', name:'ReclaimWorkshop', component: ReclaimWorkshop},
+    {path: '/WorkShopList', name:'WorkShopList', component: WorkShopList},
+    {path: '/FileWorkShopOfficeComplaint', name:'FileWorkShopOfficeComplaint', component: FileWorkShopOfficeComplaint},
     {path: '/ShowWorkshopEmployee', name:'ShowWorkshopEmployee', component: ShowWorkshopEmployee},
-    {path: '/ListOfficeService', name:'ListOfficeService', component: ListOfficeService},
     {path: '/WorkshopAds', name:'WorkshopAds', component: WorkshopAds},
     {path: '/OfferWorkshopService', name:'OfferWorkshopService', component: OfferWorkshopService}
 ]
