@@ -5,12 +5,14 @@
         Realizar Publicidad de Taller
       </h1>
       <form @submit.prevent>
+        <div>
         <label class="label">Nombre anuncio:</label>
-        <input type="text" name="anuncio" id="txtName" /><br />
-
+        <input type="text" name="anuncio" id="txtName" />
+</div>
+<div>
         <label for="inputFile" class="btn mt-4">Subir Foto</label>
-        <input type="file" hidden name="imagen" id="inputFile" /><br />
-        
+        <input type="file" hidden name="imagen" id="inputFile" />
+        </div>
         <input 
           type="hidden"
           name="workshop_office_id"

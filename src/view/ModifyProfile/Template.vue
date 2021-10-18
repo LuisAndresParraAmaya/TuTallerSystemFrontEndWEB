@@ -221,9 +221,11 @@ async function modifyProfile() {
       sessionStorage.setItem("user_rut", response.data.user_new_rut);
       if (response.data.user_new_rut != undefined) {
         alert("Sus datos fueron actualizados correctamente");
+        return
       }
       if(response.data.Response == 'Actual Password Failed'){
         alert("La contraseña actual ingresada no coincide");
+        return
       }
     })
     .catch(function (error) {

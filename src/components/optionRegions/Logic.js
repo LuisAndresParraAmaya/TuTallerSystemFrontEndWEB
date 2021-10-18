@@ -7,7 +7,7 @@ export default {
             }).then(function (res) {
                 return res.data.response;
             });
-
+            
             const communes = await axios
                     .get("http://localhost:8080/CommuneList", {
                         headers: { "Content-type": "application/json" }

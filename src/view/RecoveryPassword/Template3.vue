@@ -47,20 +47,20 @@ function modifyPassword() {
     alert('Las contraseñas no coinciden')
     return
   }
+  let exito = false
   axios
     .post("http://localhost:8080/ModifyPassword", {
       headers: { "Content-type": "application/json" },
       data: { user_rut: sessionStorage.getItem('user_rut'), user_new_password: txtNewpass.value }
     })
     .then(function (res) {
-      switch (res.data.Response) {
-        case 'Operation Success':
-          alert('La contraseña ha sido cambiada exitosamente, porfavor vuelve a intentar iniciar sesión')
-          router.push("/Login");
+      if(res.data.Response == 'Operation Success') {
+        alert('La contraseña ha sido cambiada exitosamente, porfavor vuelve a intentar iniciar sesión')
       }
     })
     .catch(function (error) {
       console.log(error);
     });
+    
 }
 </script>

@@ -62,6 +62,9 @@ async function registerEmployee() {
       if(res.data.Response === 'Rut not exist'){
         alert("El rut no corresponde a ningun usuario registrado")
       }
+      if(res.data.Response == 'Type user is not allowed'){
+        alert("El usuario ingresado no puede ser empleado en la sucursal")
+      }
     });
 }
 </script>

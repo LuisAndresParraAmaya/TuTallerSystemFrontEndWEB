@@ -1,7 +1,7 @@
 <template>
   <div style="display: flex; justify-content: center">
     <div class="border mockup-window bg-base-300">
-      <img style="margin: 0 auto" src="http://localhost:8080/img" alt="Girl in a jacket" width="400" height="400">
+      <img style="margin: 0 auto" src="http://localhost:8080/img" alt="get_imagen_mejor_puja" width="400" height="400">
       <h1 class="my-3 text-4xl font-bold text-center mb-12">
         Lista de sucursales automotrices
       </h1>
@@ -25,9 +25,10 @@ import Table from "../../components/WorkShopList/Table/Template.vue";
 export default {
   components: {
     Table,
-  },
+  }
 };
 </script>
+
 
 
 
