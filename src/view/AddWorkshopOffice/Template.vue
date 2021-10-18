@@ -218,235 +218,6 @@
             Agregar sucursal
           </button>
         </div>
-        <div class="mt-14">
-          <div class="flex place-items-center">
-            <div class="w-2/4">
-              <label class="label"> Región de sucursal</label>
-            </div>
-            <div class="w-full">
-              <select
-                class="select input-bordered w-full text-center"
-                name=""
-                id="selectRegion"
-                required
-              >
-                <option selected>REGION METROPOLITANA</option>
-              </select>
-            </div>
-          </div>
-          <div class="flex place-items-center">
-            <div class="w-2/4">
-              <label class="label"> Comuna de sucursal </label>
-            </div>
-            <div class="w-full">
-              <select
-                class="select input-bordered w-full text-center"
-                name=""
-                id="selectCommune"
-                required
-              >
-                <option selected>SANTIAGO</option>
-              </select>
-            </div>
-          </div>
-          <div class="flex place-items-center">
-            <div class="w-2/4">
-              <label class="label">Dirección de sucursal</label>
-            </div>
-            <div class="w-full">
-              <input
-                type="text"
-                class="input input-bordered w-full text-center"
-                id="txtAddress"
-                required
-              />
-            </div>
-          </div>
-          <div class="flex">
-            <div class="w-2/4">
-              <label class="label"> Teléfono de sucursal </label>
-            </div>
-            <div class="w-full">
-              <input
-                type="number"
-                class="input input-bordered w-full text-center"
-                id="txtPhone"
-                required
-              />
-            </div>
-          </div>
-          <div class="flex">
-            <label class="w-full text-center">
-              Horario de atención de sucursal
-            </label>
-          </div>
-          <div class="flex mt-12 place-content-between place-items-center">
-            <div class="">
-              <label class="label"
-                >Lunes<input
-                  id="cbxMonday"
-                  type="checkbox"
-                  class="toggle toggle-primary ml-3"
-              /></label>
-            </div>
-            <div>
-              
-            </div>
-            <div>
-              <input
-                type="time"
-                class="input input-bordered w-auto"
-                id="timeApertureMonday"
-              />Hasta las
-              <input
-                type="time"
-                class="input input-bordered w-auto"
-                id="timeDepartureMonday"
-              />
-            </div>
-          </div>
-          <div class="flex place-content-between place-items-center">
-            <div class="">
-              <label class="label"
-                >Martes<input
-                  id="cbxTuesday"
-                  type="checkbox"
-                  class="toggle toggle-primary ml-3"
-              /></label>
-            </div>
-            <div>
-              <input
-                type="time"
-                class="input input-bordered w-auto"
-                id="timeApertureTuesday"
-              />Hasta las
-              <input
-                type="time"
-                class="input input-bordered w-auto"
-                id="timeDepartureTuesday"
-              />
-            </div>
-          </div>
-          <div class="flex place-content-between place-items-center">
-            <div class="">
-              <label class="label"
-                >Miercoles<input
-                  id="cbxWednesday"
-                  type="checkbox"
-                  class="toggle toggle-primary ml-3"
-              /></label>
-            </div>
-            <div>
-              <input
-                type="time"
-                class="input input-bordered w-auto"
-                id="timeApertureWednesday"
-              />Hasta las
-              <input
-                type="time"
-                class="input input-bordered w-auto"
-                id="timeDepartureWednesday"
-              />
-            </div>
-          </div>
-          <div class="flex place-content-between place-items-center">
-            <div class="">
-              <label class="label"
-                >Jueves<input
-                  id="cbxThursday"
-                  type="checkbox"
-                  class="toggle toggle-primary ml-3"
-              /></label>
-            </div>
-            <div>
-              <input
-                type="time"
-                class="input input-bordered w-auto"
-                id="timeApertureThursday"
-              />Hasta las
-              <input
-                type="time"
-                class="input input-bordered w-auto"
-                id="timeDepartureThursday"
-              />
-            </div>
-          </div>
-          <div class="flex place-content-between place-items-center">
-            <div class="">
-              <label class="label"
-                >Viernes<input
-                  id="cbxFriday"
-                  type="checkbox"
-                  class="toggle toggle-primary ml-3"
-              /></label>
-            </div>
-            <div>
-              <input
-                type="time"
-                class="input input-bordered w-auto"
-                id="timeApertureFriday"
-              />Hasta las
-              <input
-                type="time"
-                class="input input-bordered w-auto"
-                id="timeDepartureFriday"
-              />
-            </div>
-          </div>
-          <div class="flex place-content-between place-items-center">
-            <div class="">
-              <label class="label"
-                >Sabado<input
-                  id="cbxSaturday"
-                  type="checkbox"
-                  class="toggle toggle-primary ml-3"
-              /></label>
-            </div>
-            <div>
-              <input
-                type="time"
-                class="input input-bordered w-auto"
-                id="timeApertureSaturday"
-              />Hasta las
-              <input
-                type="time"
-                class="input input-bordered w-auto"
-                id="timeDepartureSaturday"
-              />
-            </div>
-          </div>
-          <div class="flex place-content-between place-items-center">
-            <div class="">
-              <label class="label"
-                >Domingo
-                <input
-                  id="cbxSunday"
-                  type="checkbox"
-                  class="toggle toggle-primary ml-3"
-              /></label>
-            </div>
-            <div>
-              <input
-                type="time"
-                class="input input-bordered w-auto"
-                id="timeApertureSunday"
-              />Hasta las
-              <input
-                type="time"
-                class="input input-bordered w-auto"
-                id="timeDepartureSunday"
-              />
-            </div>
-          </div>
-          <div class="flex">
-            <button
-              v-on:click="getSchedule"
-              class="w-full place px-8 py-3 rounded-md btn text-coolGray-50 mt-5"
-            >
-              Agregar sucursal
-            </button>
-          </div>
-        </div>
       </form>
     </div>
     </div>
@@ -461,6 +232,10 @@ export default {
     async function getSchedule() {
       let workshop_office_attention = [];
       // CONDITIONS MONDAY
+      if(txtPhone.value.length > 8){
+        alert("El numero de telefono es muy largo");
+        return
+      }
       if (cbxMonday.checked == true && timeApertureMonday.value == "") {
         alert("debe ingresar hora de apertura del dia lunes");
         return;
@@ -644,8 +419,8 @@ export default {
         headers: { "Content-type": "application/json" },
         data: {
           workshop_id: route.params.workshop_id,
-          commune_id: 2,
-          workshop_suscription_id: 1,
+          commune_id: 54,
+          workshop_office_suscription_id: 1,
           workshop_office_address: txtAddress.value,
           workshop_office_phone: txtPhone.value,
           ////Informacion relacionada a el horario de atencion

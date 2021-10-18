@@ -21,6 +21,16 @@ export default {
             }
         }
 
+        function filterByCommune(commune_name){
+            let officesOrder = []
+            for(let office in offices){
+                if(office.commune_name == commune_name){
+                    
+                }
+                
+            }
+        }
+
         function NavigateToRoute(workshop_office_id, workshop_office_address, workshop_office_phone, commune_name){
             /*Source -> RouteLocationRaw: 
             https://next.router.vuejs.org/api/#routelocationraw*/

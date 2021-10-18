@@ -16,6 +16,17 @@ export default {
         }).then(function (res) {
             return res.data.response
         })
-        return { NavigationToRoute, employees }
+
+        function enConstruccion(){
+            alert("Función en construcción...")
+        }
+        function getShow(){
+            if(sessionStorage.getItem('user_type_id') == 3){
+              return true
+            }else{
+              return false
+            }
+          }
+        return { NavigationToRoute, employees,  enConstruccion, getShow }
     }
 }

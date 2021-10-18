@@ -11,6 +11,15 @@ export default {
         this.$router.push({ name: route })
       }
     }
-    return { logout, isAuthenticated, NavigateToRoute }
+    function getShow(){
+      if(sessionStorage.getItem('user_type_id')  == 1){
+        return true
+      }else{
+        return false
+      }
+      
+      
+    }
+    return { logout, isAuthenticated, NavigateToRoute, getShow }
   }
 }

@@ -1,0 +1,15 @@
+table {
+    margin: 0 auto;
+    margin-top: 3%;
+  }
+table > button {
+    margin-bottom: 5%;
+}
+  tr, td, th {
+    border: 1px solid black;
+    padding: 1em;
+    text-align: center
+  }
+  p {
+    margin-top: 3%; 
+  }
