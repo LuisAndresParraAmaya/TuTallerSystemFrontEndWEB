@@ -201,6 +201,10 @@ const createAccount = () => {
         alert('El telefono '+msg[1])
         return
       }
+
+      if(res == 'Create Account Success'){
+        alert("Su cuenta ha sido creada con exito, ya puede iniciar sesión")
+      }
       router.push("/Login");
     })
     .catch(function (error) {

@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-600 rounded-md border-radius p-5" style="width: 100%">
+  <div v-show="getShow()" class="bg-gray-600 rounded-md border-radius p-5" style="width: 100%">
     <button
       class="bg-green-600 hover:bg-green-700 text-white rounded-lg p-1 md:p-3"
       id="ShowWorkshopEmployee_btnAddEmployee"
@@ -27,7 +27,7 @@
           <td class="py-2 px-1">{{ employee.user_rut }}</td>
           <td class="py-2 px-1">{{ employee.workshop_office_employee_experience }}</td>
           <td class="py-2 px-1">
-            <button
+            <button v-on:click="enConstruccion()"
               class="
                 bg-green-600
                 hover:bg-green-700

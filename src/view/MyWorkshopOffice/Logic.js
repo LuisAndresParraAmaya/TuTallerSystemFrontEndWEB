@@ -21,6 +21,18 @@ export default {
             https://next.router.vuejs.org/api/#routelocationraw*/
             this.$router.push({ name: route })
         }
-        return { NavigationToRoute }
+
+        function getShow(){
+            if (sessionStorage.getItem('user_type_id') == 3) {
+                return true
+            }else{
+                return false
+            } 
+        }
+
+        function enConstruccion(){
+            alert("Función en construcción...")
+        }
+        return { NavigationToRoute, enConstruccion, getShow }
     }
 }

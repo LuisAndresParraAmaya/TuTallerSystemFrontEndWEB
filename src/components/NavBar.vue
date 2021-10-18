@@ -52,7 +52,7 @@
               <li>
                 <a v-on:click="NavigateToRoute('RealizePostulation')">Postular taller</a>
               </li>
-              <li>
+              <li v-show="getShow()">
                 <a v-on:click="NavigateToRoute('ListPostulation')">Talleres postulados</a>
               </li>
             </ul>

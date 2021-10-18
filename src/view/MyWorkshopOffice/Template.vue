@@ -78,18 +78,19 @@
               Servicios Automotrices
             </button>
           </div>
-          <div>
+          <div v-show="getShow()">
             <button
-              v-on:click="NavigationToRoute()"
+              v-on:click="enConstruccion()"
               class="w-full px-8 py-3 rounded-md btn text-coolGray-50 mt-5"
             >
               Suscripción
             </button>
           </div>
-          <div>
+          <div v-show="getShow()">
             <button
-              v-on:click="NavigationToRoute()"
+              v-on:click="NavigationToRoute('MyWorkShopOfficeAdsList')"
               class="w-full px-8 py-3 rounded-md btn text-coolGray-50 mt-5"
+              id="MyWorkshopOffice_btnAdvertisement"
             >
               Anuncios Publicitarios
             </button>
@@ -105,7 +106,7 @@
           </div>
           <div>
             <button
-              v-on:click="NavigationToRoute()"
+              v-on:click="enConstruccion()"
               class="w-full px-8 py-3 rounded-md btn text-coolGray-50 mt-5"
             >
               Evaluaciones

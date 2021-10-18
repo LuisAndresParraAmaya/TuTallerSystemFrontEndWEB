@@ -5,21 +5,20 @@
         Realizar Publicidad de Taller
       </h1>
       <form @submit.prevent>
+        <div>
         <label class="label">Nombre anuncio:</label>
-        <input type="text" name="anuncio" id="txtName" /><br />
-
-        <label class="label">Monto de Puja:</label>
-        <input type="number" name="monto" id="txtBid" /><br />
-
-        <label class="label">Cargar imagen:</label>
-        <input type="file" name="imagen" id="inputFile" /><br />
-
-        <input
+        <input type="text" name="anuncio" id="txtName" />
+</div>
+<div>
+        <label for="inputFile" class="btn mt-4">Subir Foto</label>
+        <input type="file" hidden name="imagen" id="inputFile" />
+        </div>
+        <input 
           type="hidden"
           name="workshop_office_id"
           id="workshop_office_id"
         />
-        <button v-on:click="sendRequest()">Registrar</button>
+        <button class="btn" v-on:click="sendRequest()">Registrar</button>
       </form>
     </div>
   </div>
@@ -33,14 +32,16 @@ async function sendRequest() {
     "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
   };
   formData.append("workshop_office_ad_name", txtName.value);
-  formData.append("workshop_office_ad_bid", txtBid.value);
-  formData.append("workshop_office_id", 32);
+  formData.append("workshop_office_id", sessionStorage.getItem('workshop_office_id'));
   formData.append("file", inputFile.files[0]);
+  alert('Anuncio publicitario registrado con exito')
   await axios
     .post("http://localhost:8080/AddWorkshopOfficeAd",
       formData,
       { headers: headers }
     )
-    .then(function (res) {});
+    .then(function (res) {
+    });
 }
 </script>
+<style src="./Style.css" scoped></style>

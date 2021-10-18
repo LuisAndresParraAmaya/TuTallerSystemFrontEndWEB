@@ -1,9 +1,9 @@
 <template>
-  <div class="bg-gray-600 rounded-md border-radius p-5" style="width: 100%">
+  <div v-show="getShow()" class="bg-gray-600 rounded-md border-radius p-5" style="width: 100%">
     <button
       class="bg-green-600 hover:bg-green-700 text-white rounded-lg p-1 md:p-3"
       id="ShowWorkshopEmployee_btnAddEmployee"
-      v-on:click="NavigationToRoute('AddWorkshopOfficeEmployee')"
+      v-on:click="NavigationToRoute('AddWorkshopOfficeService')"
     >
       Agregar Servicio
     </button>
@@ -20,10 +20,10 @@
     <tbody class="divide-y text-center text-sm md:text-base">
       <tr v-for="service in services" :key="service">
         <td class="p-2">{{service.workshop_office_service_name}}</td>
-        <td class="p-2">${{service.workshop_office_service_price}} CLP</td>
+        <td class="p-2">{{service.workshop_office_service_price}} CLP</td>
         <td class="p-2">{{service.workshop_office_service_estimated_time}}</td>
         <td class="p-2">
-          <button
+          <button v-on:click="NavigationToRoute('WorkshopOfficeService', service.workshop_office_service_name, service.workshop_office_service_price, service.workshop_office_service_estimated_time, service.workshop_office_service_description)"
             class="
               bg-green-600
               hover:bg-green-700

@@ -42,9 +42,10 @@ hola
     </div>
   </div>  
 </template>
-<script>
+<script setup>
 import axios from 'axios'
 async function sendReclaim(){
+  console.log("sendrelcaim")
       await axios.post("http://localhost:8080/FileWorkShopOfficeComplaint", {
           headers: { "Content-type": "application/json" },
           data: {  
@@ -56,7 +57,9 @@ async function sendReclaim(){
             complaint: txtReclaim.value
           }
         }).then(function (res) {
-
+          if(res.data.Response == 'Operation Success'){
+            alert("Su reclamo fue enviado con exito")
+          }
         })
 }
 </script>

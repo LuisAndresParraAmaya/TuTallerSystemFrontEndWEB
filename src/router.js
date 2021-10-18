@@ -17,8 +17,10 @@ import MyWorkshopList from './view/MyWorkshopList/Template.vue'
 import MyWorkshop from './view/MyWorkshop/Template.vue'
 import MyWorkshopOfficeList from './view/MyWorkshopOfficeList/Template.vue'
 import MyWorkshopOffice from './view/MyWorkshopOffice/Template.vue'
+import MyWorkShopOfficeAdsList from './view/MyWorkShopOfficeAdsList/Template.vue'
 import AddWorkshopOfficeEmployee from './view/AddWorkshopOfficeEmployee/Template.vue'
 import ModifyWorkShopOffice from './view/ModifyWorkshopOffice/Template.vue'
+import AddWorkshopOfficeService from './view/AddWorkshopOfficeService/Template.vue'
 import WorkshopOfficeService from './view/WorkshopOfficeService/Template.vue'
 import WorkShopList from './view/WorkShopList/Template.vue'
 import FileWorkShopOfficeComplaint from './view/FileWorkShopOfficeComplaint/Template.vue'
@@ -26,6 +28,7 @@ import ShowWorkshopEmployee from './view/ShowWorkshopEmployee/Template.vue'
 import WorkShopOfficeServiceList from './view/WorkShopOfficeServiceList/Template.vue'
 import WorkshopAds from './view/WorkshopAds/Template.vue'
 import OfferWorkshopService from './view/OfferWorkshopService/Template.vue'
+import WorkShopOfficeAdsBid from './view/WorkShopOfficeAdsBid/Template.vue'
 
 const routes = [
     {path: '/', component: Home },
@@ -49,13 +52,16 @@ const routes = [
     {path: '/AddWorkshopOffice', name:'AddWorkshopOffice', component: AddWorkshopOffice},
     {path: '/AddWorkshopOfficeEmployee', name:'AddWorkshopOfficeEmployee', component: AddWorkshopOfficeEmployee},
     {path: '/WorkShopOfficeServiceList', name:'WorkShopOfficeServiceList', component: WorkShopOfficeServiceList},
+    {path: '/MyWorkShopOfficeAdsList', name:'MyWorkShopOfficeAdsList', component: MyWorkShopOfficeAdsList},
     /////////////////////
+    {path: '/WorkShopOfficeAdsBid', name:'WorkShopOfficeAdsBid', component: WorkShopOfficeAdsBid},
     {path: '/ModifyWorkshopOffice', name:'ModifyWorkshopOffice', component: ModifyWorkShopOffice},
-    {path: '/WorkshopOfficeService', name:'WorkshopOfficeService', component: WorkshopOfficeService},
+    {path: '/AddWorkshopOfficeService', name:'AddWorkshopOfficeService', component: AddWorkshopOfficeService},
     {path: '/WorkShopList', name:'WorkShopList', component: WorkShopList},
     {path: '/FileWorkShopOfficeComplaint', name:'FileWorkShopOfficeComplaint', component: FileWorkShopOfficeComplaint},
     {path: '/ShowWorkshopEmployee', name:'ShowWorkshopEmployee', component: ShowWorkshopEmployee},
     {path: '/WorkshopAds', name:'WorkshopAds', component: WorkshopAds},
+    {path: '/WorkshopOfficeService', name:'WorkshopOfficeService', component: WorkshopOfficeService},
     {path: '/OfferWorkshopService', name:'OfferWorkshopService', component: OfferWorkshopService}
 ]
 export const router = createRouter({

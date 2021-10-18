@@ -23,6 +23,7 @@ export default {
             sessionStorage.setItem("user_phone", res.data.user_phone);
             sessionStorage.setItem("user_email", res.data.user_email);
             sessionStorage.setItem("user_password", res.data.user_password);
+            sessionStorage.setItem("user_type_id", res.data.user_type_id);
             isAuthenticated.value = true;
           }
           if(res.data.Response == 'Account disabled'){
