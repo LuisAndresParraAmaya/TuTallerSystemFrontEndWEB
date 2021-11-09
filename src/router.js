@@ -29,6 +29,7 @@ import WorkShopOfficeServiceList from './view/WorkShopOfficeServiceList/Template
 import WorkshopAds from './view/WorkshopAds/Template.vue'
 import OfferWorkshopService from './view/OfferWorkshopService/Template.vue'
 import WorkShopOfficeAdsBid from './view/WorkShopOfficeAdsBid/Template.vue'
+import FileSupportTicket from './view/FileSupportTicket/Template.vue'
 
 const routes = [
     {path: '/', component: Home },
@@ -48,6 +49,7 @@ const routes = [
     {path: '/MyWorkshop', name:'MyWorkshop', component: MyWorkshop},
     {path: '/MyWorkshopOfficeList', name:'MyWorkshopOfficeList', component: MyWorkshopOfficeList},
     {path: '/MyWorkshopOffice', name:'MyWorkshopOffice', component: MyWorkshopOffice},
+    {path: '/FileSupportTicket', name:'FileSupportTicket', component: FileSupportTicket},
     //Rutas -> Sucursales
     {path: '/AddWorkshopOffice', name:'AddWorkshopOffice', component: AddWorkshopOffice},
     {path: '/AddWorkshopOfficeEmployee', name:'AddWorkshopOfficeEmployee', component: AddWorkshopOfficeEmployee},
@@ -63,6 +65,7 @@ const routes = [
     {path: '/WorkshopAds', name:'WorkshopAds', component: WorkshopAds},
     {path: '/WorkshopOfficeService', name:'WorkshopOfficeService', component: WorkshopOfficeService},
     {path: '/OfferWorkshopService', name:'OfferWorkshopService', component: OfferWorkshopService}
+    
 ]
 export const router = createRouter({
     history:createWebHistory(),
