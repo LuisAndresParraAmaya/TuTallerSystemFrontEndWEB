@@ -10,3 +10,11 @@ export function statusEnglishToSpanish(status){
     }
     
 }
+export function subscriptionNameEnglishToSpanish(status){
+    if(status == 'basic'){
+        return 'Plan Básico'
+    }
+    if(status == 'monthly'){
+        return 'Mensual'
+    }
+}
