@@ -18,6 +18,12 @@
           ><a class="btn btn-ghost btn-sm rounded-btn mt-2">Ver Sucursales Automotrices</a></router-link
         >
         <router-link
+          to="/FileSupportTicket"
+          ><a class="btn btn-ghost btn-sm rounded-btn mt-2">Soporte</a></router-link
+        >
+
+       
+        <router-link
           v-show="isAuthenticated == false"
           class="btn btn-success btn-sm rounded-btn"
           to="/Login"
