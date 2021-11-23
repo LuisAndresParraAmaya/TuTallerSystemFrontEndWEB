@@ -29,8 +29,16 @@ import WorkShopOfficeServiceList from './view/WorkShopOfficeServiceList/Template
 import WorkshopAds from './view/WorkshopAds/Template.vue'
 import OfferWorkshopService from './view/OfferWorkshopService/Template.vue'
 import WorkShopOfficeAdsBid from './view/WorkShopOfficeAdsBid/Template.vue'
+import SubscriptionList from './view/SubscriptionList/Template.vue'
+import FileSupportTicket from './view/FileSupportTicket/Template.vue'
+import OfferList from './view/OfferList/Template.vue'
+import AddOffer from './view/AddOffer/Template.vue'
+import ActivateOffer from './view/ActivateOffer/Template.vue'
+import ShowOffer from './view/ShowOffer/Template.vue'
+import SubscriptionManagement from './view/SubscriptionManagement/Template.vue'
 
 const routes = [
+    
     {path: '/', component: Home },
     {path: '/Login', component: Login },
     {path: '/CreateAccount', name:'ModifyProfile', component: CreateAccount },
@@ -48,6 +56,15 @@ const routes = [
     {path: '/MyWorkshop', name:'MyWorkshop', component: MyWorkshop},
     {path: '/MyWorkshopOfficeList', name:'MyWorkshopOfficeList', component: MyWorkshopOfficeList},
     {path: '/MyWorkshopOffice', name:'MyWorkshopOffice', component: MyWorkshopOffice},
+    {path: '/SubscriptionList', name:'SubscriptionList', component: SubscriptionList},
+    {path: '/FileSupportTicket', name:'FileSupportTicket', component: FileSupportTicket},
+    {path: '/OfferList', name:'OfferList', component: OfferList},
+    {path: '/AddOffer', name:'AddOffer', component: AddOffer},
+    {path: '/ActivateOffer', name:'ActivateOffer', component: ActivateOffer},
+    {path: '/ShowOffer', name:'ShowOffer', component: ShowOffer},
+    {path: '/SubscriptionManagement', name:'SubscriptionManagement', component: SubscriptionManagement},
+    
+
     //Rutas -> Sucursales
     {path: '/AddWorkshopOffice', name:'AddWorkshopOffice', component: AddWorkshopOffice},
     {path: '/AddWorkshopOfficeEmployee', name:'AddWorkshopOfficeEmployee', component: AddWorkshopOfficeEmployee},
