@@ -1,5 +1,7 @@
 import { useRoute } from "vue-router"
 export default {
+
+   
     setup() {
         const route = useRoute()
         console.log("params:", route.params)
@@ -21,6 +23,11 @@ export default {
             https://next.router.vuejs.org/api/#routelocationraw*/
             this.$router.push({ name: route })
         }
+        function Redirect(link) { 
+                   
+            localStorage.setItem('offertipes', 'workshopOfficeService')
+            this.$router.push(link)
+        }
 
         function getShow(){
             if (sessionStorage.getItem('user_type_id') == 3) {
@@ -33,6 +40,6 @@ export default {
         function enConstruccion(){
             alert("Función en construcción...")
         }
-        return { NavigationToRoute, enConstruccion, getShow }
+        return { NavigationToRoute, enConstruccion, getShow, Redirect }
     }
 }

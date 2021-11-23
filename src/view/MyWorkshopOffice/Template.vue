@@ -112,6 +112,15 @@
               Evaluaciones
             </button>
           </div>
+          <div>
+            <button
+              id="OfferList"
+              v-on:click="Redirect('OfferList')"
+              class="w-full px-8 py-3 rounded-md btn text-coolGray-50 mt-5"
+            >
+              Ofertas
+            </button>
+          </div>
           <!-- <button
             v-on:click="viewWorkshop"
             class="w-full px-8 py-3 rounded-md btn text-coolGray-50 mt-5"
