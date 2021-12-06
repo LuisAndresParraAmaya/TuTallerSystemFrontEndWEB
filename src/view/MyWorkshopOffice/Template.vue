@@ -72,6 +72,15 @@
           </div>
           <div>
             <button
+              id="OfferList"
+              v-on:click="Redirect('MyWorkshopOfficeSubscription')"
+              class="w-full px-8 py-3 rounded-md btn text-coolGray-50 mt-5"
+            >
+              Subscripción
+            </button>
+          </div>
+          <div>
+            <button
               v-on:click="NavigationToRoute('WorkShopOfficeServiceList')"
               class="w-full px-8 py-3 rounded-md btn text-coolGray-50 mt-5"
             >
