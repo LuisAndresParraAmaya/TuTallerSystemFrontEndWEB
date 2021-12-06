@@ -10,11 +10,13 @@ export default {
             ofertas: [],
             service: [],
             servicios: [],
-            offertype:''
+            offertype:'',
+            workshopservice:[],
+            
         }
     },
     mounted() {
-        
+        this.baseService()
         this.baseSubs();
         this.offertype =localStorage.getItem('offertipes');
         
@@ -86,7 +88,44 @@ export default {
 
                 }
             }
-            return this.subs;
+            return this.subs
+        },
+        validar2(){
+            
+            for (let sub in this.service) {
+                
+                if (this.service[sub].offer_id === 1) {
+                    this.service.splice(sub, 1)
+
+                }
+               
+                              
+            }
+            for(let g in this.service){
+                for(let h in this.workshopservice){
+                    if(this.service[g].offer_name==this.workshopservice[h].offer_name && this.service[g].id != this.workshopservice[h].id)
+                    this.service.splice(g,1)
+                }
+            }
+           
+            return this.service
+        },
+        async baseService() {
+            let dos = await axios.post('http://localhost:8080/WorkshopOfficeServiceList', {
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                data: {
+                    workshop_office_id: 1,
+                },
+
+            }).
+            then(response => (this.workshopservice = response.data.response, this.service=response.data.response))
+            .
+            catch(function (error) {
+                console.log(error)
+            })
+
         }
         
     }
