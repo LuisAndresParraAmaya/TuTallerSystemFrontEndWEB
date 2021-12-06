@@ -1,84 +1,266 @@
 <template>
-  <div
-    class="navbar mb-2 shadow-lg bg-neutral text-neutral-content rounded-box"
+  <nav
+    class="
+      relative
+      flex flex-wrap
+      items-center
+      justify-between
+      px-2
+      py-3
+      shadow-lg
+      bg-neutral
+      mb-3
+    "
   >
-    <div class="px-2 mx-2 navbar-start">
-      <span class="text-lg font-bold">TuTaller</span>
-    </div>
-    <div class="hidden px-2 mx-2 navbar-center lg:flex">
-      <div class="flex items-stretch">
-        <router-link to="/">
-          <a class="btn btn-ghost btn-sm rounded-btn mt-2">Inicio</a>
-        </router-link>
-        <!--ver lista de talleres | todos los usuarios-->
-        <!-- <a class="btn btn-ghost btn-sm rounded-btn">Ver Talleres</a> -->
-        <!--Todos los que aun no han iniciado sesion-->
-        <router-link
-          to="/WorkShopList"
-          ><a class="btn btn-ghost btn-sm rounded-btn mt-2">Ver Sucursales Automotrices</a></router-link
+    <div
+      class="container px-4 mx-auto flex flex-wrap items-center justify-between"
+    >
+      <div
+        class="
+          w-full
+          relative
+          flex
+          justify-between
+          lg:w-auto
+          px-4
+          lg:static lg:block lg:justify-start
+        "
+      >
+        <button
+          class="
+            text-sm
+            font-bold
+            leading-relaxed
+            inline-block
+            mr-4
+            py-2
+            whitespace-nowrap
+            uppercase
+            text-white
+          "
         >
-        <router-link
-          to="/FileSupportTicket"
-          ><a class="btn btn-ghost btn-sm rounded-btn mt-2">Soporte</a></router-link
+          TuTaller
+        </button>
+        <button
+          class="
+            text-white
+            cursor-pointer
+            text-xl
+            leading-none
+            px-3
+            py-1
+            border border-solid border-transparent
+            rounded
+            bg-transparent
+            block
+            lg:hidden
+            outline-none
+            focus:outline-none
+          "
+          type="button"
+          v-on:click="toggleNavbar()"
         >
-
-       
-        <router-link
-          v-show="isAuthenticated == false"
-          class="btn btn-success btn-sm rounded-btn"
-          to="/Login"
-          >Iniciar Sesión</router-link
-        >
-        
-        <div v-show="isAuthenticated == true">
-          <router-link
-            to="/ModifyProfile"
-            class="btn btn-ghost btn-sm rounded-btn"
-            @click="isAuthenticated = false"
-            >Modificar Perfil</router-link
-          >
-          <div class="dropdown">
-            <div tabindex="0" class="btn">Gestionar Talleres</div>
-            <ul
-              tabindex="0"
+          <i class="fas fa-bars"
+            ><div class="space-y-2">
+              <span class="block w-8 h-1 bg-white"></span>
+              <span class="block w-8 h-1 bg-white"></span>
+              <span class="block w-8 h-1 bg-white"></span></div
+          ></i>
+        </button>
+      </div>
+      <div
+        v-bind:class="{ hidden: !showMenu, flex: showMenu }"
+        class="lg:flex lg:flex-grow items-center"
+      >
+        <ul class="flex flex-col lg:flex-row list-none ml-auto">
+          <li class="nav-item">
+            <button
               class="
-                p-2
-                shadow
-                menu
-                dropdown-content
-                bg-neutral
-                rounded-box
+                px-3
+                py-2
+                flex
+                items-center
+                text-xs
+                uppercase
+                font-bold
+                leading-snug
                 text-white
-                w-52
+                hover:opacity-75
               "
+              v-on:click="navegarFalse('/')"
             >
-              <li>
-                <a v-on:click="NavigateToRoute('MyWorkshopList')">Mis talleres</a>
-              </li>
-              <li>
-                <a v-on:click="NavigateToRoute('RealizePostulation')">Postular taller</a>
-              </li>
-              <li v-show="getShow()">
-                <a v-on:click="NavigateToRoute('ListPostulation')">Talleres postulados</a>
-              </li>
-            </ul>
-          </div>
-          <!--Solo administrador de sistema puede verlo--->
-          <!-- <router-link
-            to="/ListPostulation"
-            class="btn btn-ghost btn-sm rounded-btn"
-            @click="isAuthenticated = false"
-            >Listar Talleres Postulados</router-link
-          > -->
-          <router-link
-            to="/Login"
+              <i class="f text-lg leading-lg text-white opacity-75" /><span
+                class="ml-2"
+                >Inicio</span
+              >
+            </button>
+          </li>
+          <li class="nav-item" v-show="isAuthenticated == true">
+            <button
+              class="
+                px-3
+                py-2
+                flex
+                items-center
+                text-xs
+                uppercase
+                font-bold
+                leading-snug
+                text-white
+                hover:opacity-75
+              "
+              v-on:click="navegarTrue('WorkshopList')"
+            >
+              <i class="text-lg leading-lg text-white opacity-75" /><span
+                class="ml-2"
+                >Ver Sucursales Automotrices</span
+              >
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              class="
+                px-3
+                py-2
+                flex
+                items-center
+                text-xs
+                uppercase
+                font-bold
+                leading-snug
+                text-white
+                hover:opacity-75
+              "
+              v-on:click="navegarFalse('FileSupportTicket')"
+            >
+              <i class="text-lg leading-lg text-white opacity-75" /><span
+                class="ml-2"
+                >Soporte</span
+              >
+            </button>
+          </li>
+          <li class="nav-item" v-show="isAuthenticated == false">
+            <button
+              class="
+                px-3
+                py-2
+                flex
+                items-center
+                text-xs
+                uppercase
+                font-bold
+                leading-snug
+                text-white
+                hover:opacity-75
+              "
+              @click="navegarFalse('Login')"
+            >
+              <i class="text-lg leading-lg text-white opacity-75" /><span
+                class="ml-2"
+                >Iniciar Sesión</span
+              >
+            </button>
+          </li>
+          <li class="nav-item" v-show="isAuthenticated == true">
+            <button
+              class="
+                px-3
+                py-2
+                flex
+                items-center
+                text-xs
+                uppercase
+                font-bold
+                leading-snug
+                text-white
+                hover:opacity-75
+              "
+              v-on:click="NavigateToRoute('ModifyProfile')"
+            >
+              <i class="text-lg leading-lg text-white opacity-75" /><span
+                class="ml-2"
+                >Modificar Perfil</span
+              >
+            </button>
+          </li>
+          <li class="nav-item" v-show="isAuthenticated == true">
+            <button
+              class="
+                px-3
+                py-2
+                flex
+                items-center
+                text-xs
+                uppercase
+                font-bold
+                leading-snug
+                text-white
+                hover:opacity-75
+              "
+              v-on:click="NavigateToRoute('MyWorkshopList')"
+            >
+              <i class="text-lg leading-lg text-white opacity-75" /><span
+                class="ml-2"
+                >Mis talleres</span
+              >
+            </button>
+          </li>
+          <li class="nav-item" v-show="isAuthenticated == true">
+            <button
+              class="
+                px-3
+                py-2
+                flex
+                items-center
+                text-xs
+                uppercase
+                font-bold
+                leading-snug
+                text-white
+                hover:opacity-75
+              "
+              v-on:click="NavigateToRoute('RealizePostulation')"
+            >
+              <i class="text-lg leading-lg text-white opacity-75" /><span
+                class="ml-2"
+                >Postular taller</span
+              >
+            </button>
+          </li>
+          <li class="nav-item" v-show="getShow() && isAuthenticated == true">
+            <button
+              class="
+                px-3
+                py-2
+                flex
+                items-center
+                text-xs
+                uppercase
+                font-bold
+                leading-snug
+                text-white
+                hover:opacity-75
+              "
+              v-on:click="NavigateToRoute('ListPostulation')"
+            >
+              <i class="text-lg leading-lg text-white opacity-75" /><span
+                class="ml-2"
+                >Talleres postulados</span
+              >
+            </button>
+          </li>
+
+          <button
+            v-show="isAuthenticated == true"
             class="btn btn-error btn-sm rounded-btn"
-            v-on:click="logout"
-            >Cerrar Sesión</router-link
+            v-on:click="logout()"
           >
-        </div>
+            Cerrar Sesión
+          </button>
+        </ul>
       </div>
     </div>
-  </div>
+  </nav>
 </template>
-<script src="../components/Logic.js"></script>
+
+<script src="./Logic.js"></script>
