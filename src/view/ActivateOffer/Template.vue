@@ -22,9 +22,9 @@
                   ><input type="checkbox" :value="a.id" v-model="checkboxes" />
                   {{ a.workshop_office_service_name }}</label
                 >
+                
               </div>
-              {{checkboxes}}
-              {{recibido}}
+              
               <button v-if="state===1"
             v-on:click="conexionActivateOffer(checkboxes)"
             class="w-auto px-1 py-1 m-2 rounded-md btn text-coolGray-50"

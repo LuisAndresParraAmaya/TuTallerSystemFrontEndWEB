@@ -3,7 +3,7 @@
     <div class="border mockup-window bg-base-300">
       
       <h1 class="my-3 text-4xl font-bold text-center mb-12">
-        Susscripciones
+        Suscripciones
       </h1>
       
       <div class="grid grid-cols-1 xl:grid-cols-4 place-items-center p-1">

@@ -19,6 +19,7 @@ export default {
             sessionStorage.setItem('workshop_office_region', workshop_office_region)
             sessionStorage.setItem('workshop_office_commune', workshop_office_commune)
             sessionStorage.setItem('workshop_office_address', workshop_office_address)
+            localStorage.setItem('workshopID', workshop_id)
             this.$router.push({name: 'MyWorkshopOffice'})
         }
 

@@ -36,13 +36,18 @@ import AddOffer from './view/AddOffer/Template.vue'
 import ActivateOffer from './view/ActivateOffer/Template.vue'
 import ShowOffer from './view/ShowOffer/Template.vue'
 import SubscriptionManagement from './view/SubscriptionManagement/Template.vue'
+import MyWorkshopOfficeSubscription from './view/MyWorkshopOfficeSubscription/Template.vue'
+import Subscription from './view/Subscription/Template.vue'
+import WorkshopOfficeWorkList from './view/WorkshopOfficeWorkList/Template.vue'
+import WorkshopOfficeWork from './view/WorkshopOfficeWork/Template.vue'
+import ReserveWorkshopOfficeAttention from './view/ReserveWorkshopOfficeAttention/Template.vue'
 
 const routes = [
     
     {path: '/', component: Home },
     {path: '/Login', component: Login },
-    {path: '/CreateAccount', name:'ModifyProfile', component: CreateAccount },
-    {path: '/ModifyProfile', component: ModifyProfile },
+    {path: '/CreateAccount', component: CreateAccount },
+    {path: '/ModifyProfile', name:'ModifyProfile', component: ModifyProfile },
     {path: '/ChangePassword', component: ChangePassword },
     {path: '/DeleteAccount', component: DeleteAccount },
     {path: '/RecoveryPassword', component: RecoveryPassword },
@@ -63,6 +68,12 @@ const routes = [
     {path: '/ActivateOffer', name:'ActivateOffer', component: ActivateOffer},
     {path: '/ShowOffer', name:'ShowOffer', component: ShowOffer},
     {path: '/SubscriptionManagement', name:'SubscriptionManagement', component: SubscriptionManagement},
+    {path: '/MyWorkshopOfficeSubscription', name:'MyWorkshopOfficeSubscription', component: MyWorkshopOfficeSubscription},
+    {path: '/Subscription', name:'Subscription', component: Subscription},
+    {path: '/WorkshopOfficeWorkList', name:'WorkshopOfficeWorkList', component: WorkshopOfficeWorkList},
+    {path: '/WorkshopOfficeWork', name:'WorkshopOfficeWork', component: WorkshopOfficeWork},
+    {path: '/ReserveWorkshopOfficeAttention', name:'ReserveWorkshopOfficeAttention', component: ReserveWorkshopOfficeAttention},
+    
     
 
     //Rutas -> Sucursales

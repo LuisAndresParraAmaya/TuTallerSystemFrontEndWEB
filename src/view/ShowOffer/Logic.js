@@ -10,7 +10,7 @@ export default {
             ofertas: [],
             servicios: [],
             datobutton: '',
-            workshopservice:[]
+            workshopservice: []
 
         }
     },
@@ -22,7 +22,13 @@ export default {
     },
     methods: {
         traductor(a) {
-            subscriptionNameEnglishToSpanish(a)
+            if (a === 'basic') {
+                return 'Plan Basico'
+            }
+            if (a === 'monthly') {
+                a = 'Mensual'
+                return a;
+            }
             return a;
         },
         transformDate(z) {
