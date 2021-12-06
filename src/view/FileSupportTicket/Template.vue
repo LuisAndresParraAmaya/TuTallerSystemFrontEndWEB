@@ -4,8 +4,8 @@
       <h1 style="text-align: center; font-size: 45px; margin-bottom: 3%">
         Contáctanos
       </h1>
-      <div class="bg-base-200 flex justify-center ">
-        <div class=" w-3/5">
+      <div class="bg-base-200 flex justify-center">
+        <div class="w-3/5">
           <form @submit.prevent class="mt-6 mb-10">
             <div class="form-control">
               <label class="label">
@@ -40,8 +40,15 @@
                 placeholder="Mensaje"
               />
               <button
-              @click="sendEmail()"
-                class="w-full px-8 rounded-md btn btn-success text-coolGray-50 mt-5"
+                @click="sendEmail()"
+                class="
+                  w-full
+                  px-8
+                  rounded-md
+                  btn btn-success
+                  text-coolGray-50
+                  mt-5
+                "
               >
                 ENVIAR
               </button>
@@ -58,24 +65,25 @@ import { useRouter } from "vue-router";
 import axios from "axios";
 const router = useRouter();
 const sendEmail = () => {
-  const inputs = [{name: 'Nombre', value: txtname.value},
-  {name: 'Email', value: txtemail.value},
-  {name: 'Asunto', value: txtsubject.value},
-  {name: 'Mensaje', value: txtmessage.value}
-  ]
-   const emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-  if(!emailRegex.test(txtemail.value)){
-    alert('Debe ingresar una dirección de correo electrónico valido')
-    return
+  const inputs = [
+    { name: "Nombre", value: txtname.value },
+    { name: "Email", value: txtemail.value },
+    { name: "Asunto", value: txtsubject.value },
+    { name: "Mensaje", value: txtmessage.value },
+  ];
+  const emailRegex =
+    /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+  if (!emailRegex.test(txtemail.value)) {
+    alert("Debe ingresar una dirección de correo electrónico valido");
+    return;
   }
-  for(let input of inputs){
-    if(input.value.trim().length == 0){
-      alert('Debe rellenar el campo: '+input.name)
-      return
+  for (let input of inputs) {
+    if (input.value.trim().length == 0) {
+      alert("Debe rellenar el campo: " + input.name);
+      return;
     }
   }
 
-  
   axios
     .post("http://localhost:8080/FileSupportTicket", {
       headers: {
@@ -85,17 +93,20 @@ const sendEmail = () => {
         user_name: txtname.value,
         user_email: txtemail.value,
         support_subject: txtsubject.value,
-        support_message: txtmessage.value
+        support_message: txtmessage.value,
       },
     })
-    .then(res =>{
-            if(res.data.Response ==='Operation Success'){
-              this.$router.push({path:"/"})
-            }
-            return res.data.SubscriptionList
-        })
+    .then((res) => {
+      if (res.data.Response === "Operation Success") {
+        
+        alert('correo enviado')
+        location.href="/"
+      }
+      return res.data.SubscriptionList;
+    })
     .catch(function (error) {
       console.log(error);
     });
+  
 };
 </script> 
