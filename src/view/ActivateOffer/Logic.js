@@ -106,7 +106,7 @@ export default {
                     'Content-type': 'application/json'
                 },
                 data: {
-                    workshop_office_id: 1,
+                    workshop_office_id: sessionStorage.getItem('workshop_office_id'),
                 },
 
             }).

@@ -21,7 +21,7 @@ export default{
                     'Content-type': 'application/json'
                 },
                 data: {
-                    workshop_id: this.workshopid,
+                    workshop_id: sessionStorage.getItem('workshop_id'),
                 },
 
             }).

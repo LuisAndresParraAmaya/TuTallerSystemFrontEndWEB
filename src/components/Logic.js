@@ -5,7 +5,7 @@ export default {
 
   mounted() {
     this.userType = sessionStorage.getItem("user_type_id")
-    if(this.userType==1||this.userType==2||this.userType==3){
+    if(this.userType==1||this.userType==2||this.userType==3||this.userType==4){
       isAuthenticated.value=true
     }
   },
@@ -60,6 +60,7 @@ export default {
       sessionStorage.setItem('workshop_name',null)
       sessionStorage.setItem('workshop_office_commune',null)
       sessionStorage.setItem('workshop_office_address',null)
+      sessionStorage.setItem('workshopofficeid',null)
       this.$router.push('/Login')
     },
     navegarTrue(a) {
