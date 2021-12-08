@@ -41,7 +41,11 @@ import Subscription from './view/Subscription/Template.vue'
 import WorkshopOfficeWorkList from './view/WorkshopOfficeWorkList/Template.vue'
 import WorkshopOfficeWork from './view/WorkshopOfficeWork/Template.vue'
 import ReserveWorkshopOfficeAttention from './view/ReserveWorkshopOfficeAttention/Template.vue'
-
+import AddWorkshopOfficeWorkTechnicalReport from './view/AddWorkshopOfficeWorkTechnicalReport/Template.vue'
+import WorkshopOfficeWorkTechnicalReport from './view/WorkshopOfficeWorkTechnicalReport/Template.vue'
+import AddWorkshopOfficeWorkAdvance from './view/AddWorkshopOfficeWorkAdvance/Template.vue'
+import CompleteWorkshopOfficeWork from './view/CompleteWorkshopOfficeWork/Template.vue'
+import AddWorkshopOfficeEvaluation from './view/AddWorkshopOfficeEvaluation/Template.vue'
 const routes = [
     
     {path: '/', component: Home },
@@ -73,6 +77,11 @@ const routes = [
     {path: '/WorkshopOfficeWorkList', name:'WorkshopOfficeWorkList', component: WorkshopOfficeWorkList},
     {path: '/WorkshopOfficeWork', name:'WorkshopOfficeWork', component: WorkshopOfficeWork},
     {path: '/ReserveWorkshopOfficeAttention', name:'ReserveWorkshopOfficeAttention', component: ReserveWorkshopOfficeAttention},
+    {path: '/AddWorkshopOfficeWorkTechnicalReport', name:'AddWorkshopOfficeWorkTechnicalReport', component: AddWorkshopOfficeWorkTechnicalReport},
+    {path: '/WorkshopOfficeWorkTechnicalReport', name:'WorkshopOfficeWorkTechnicalReport', component: WorkshopOfficeWorkTechnicalReport},
+    {path: '/AddWorkshopOfficeWorkAdvance', name:'AddWorkshopOfficeWorkAdvance', component: AddWorkshopOfficeWorkAdvance},
+    {path: '/CompleteWorkshopOfficeWork', name:'CompleteWorkshopOfficeWork', component: CompleteWorkshopOfficeWork},
+    {path: '/AddWorkshopOfficeEvaluation', name:'AddWorkshopOfficeEvaluation', component: AddWorkshopOfficeEvaluation},
     
     
 
