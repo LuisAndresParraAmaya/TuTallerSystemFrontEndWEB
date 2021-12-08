@@ -33,12 +33,23 @@ methods:{
         if(a==='working'){
             return 'En progreso'
         }
+        if (a=='confirmcompletiontechnician'){
+            return 'Esperando termino'
+        }
+        if (a=='confirmcompletioncustomer'){
+            return 'Finalizado'
+        }
+        
+        if (a=='completeandevaluated'){
+            return 'Finalizado y evaluado'
+        }
         return a;
     },
-    boton(id, status){
+    boton(id, status, nombreservicio){
 
         sessionStorage.setItem('workshopofficeid',id)
         sessionStorage.setItem('status',status)
+        sessionStorage.setItem('nombreservicio',nombreservicio)
         this.$router.push('WorkshopOfficeWork')
     }
 }
