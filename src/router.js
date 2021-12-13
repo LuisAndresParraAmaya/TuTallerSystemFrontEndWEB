@@ -29,6 +29,9 @@ import WorkShopOfficeServiceList from './view/WorkShopOfficeServiceList/Template
 import WorkshopAds from './view/WorkshopAds/Template.vue'
 import OfferWorkshopService from './view/OfferWorkshopService/Template.vue'
 import WorkShopOfficeAdsBid from './view/WorkShopOfficeAdsBid/Template.vue'
+import RealizePay from './view/RealizePay/Template.vue'
+import PaymentSuccess from './view/RealizePay/PaymentSuccess/Template.vue'
+import PaymentReject from './view/RealizePay/PaymentReject/Template.vue'
 
 const routes = [
     {path: '/', component: Home },
@@ -62,7 +65,11 @@ const routes = [
     {path: '/ShowWorkshopEmployee', name:'ShowWorkshopEmployee', component: ShowWorkshopEmployee},
     {path: '/WorkshopAds', name:'WorkshopAds', component: WorkshopAds},
     {path: '/WorkshopOfficeService', name:'WorkshopOfficeService', component: WorkshopOfficeService},
-    {path: '/OfferWorkshopService', name:'OfferWorkshopService', component: OfferWorkshopService}
+    {path: '/OfferWorkshopService', name:'OfferWorkshopService', component: OfferWorkshopService},
+    // Realizar pago
+    {path: '/RealizePay', name:'RealizePay', component: RealizePay},
+    {path: '/PaymentSuccess', name:'PaymentSuccess', component: PaymentSuccess},
+    {path: '/PaymentReject', name:'PaymentReject', component: PaymentReject}
 ]
 export const router = createRouter({
     history:createWebHistory(),

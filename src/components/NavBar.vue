@@ -6,17 +6,22 @@
       <span class="text-lg font-bold">TuTaller</span>
     </div>
     <div class="hidden px-2 mx-2 navbar-center lg:flex">
-      <div class="flex items-stretch">
+      <div>
         <router-link to="/">
           <a class="btn btn-ghost btn-sm rounded-btn mt-2">Inicio</a>
         </router-link>
         <!--ver lista de talleres | todos los usuarios-->
         <!-- <a class="btn btn-ghost btn-sm rounded-btn">Ver Talleres</a> -->
         <!--Todos los que aun no han iniciado sesion-->
+                <router-link
+          to="/RealizePay"
+          ><a class="btn btn-warning btn-sm rounded-btn mt-2">Ir a Pagar</a></router-link
+        >
         <router-link
           to="/WorkShopList"
           ><a class="btn btn-ghost btn-sm rounded-btn mt-2">Ver Sucursales Automotrices</a></router-link
         >
+
         <router-link
           v-show="isAuthenticated == false"
           class="btn btn-success btn-sm rounded-btn"
