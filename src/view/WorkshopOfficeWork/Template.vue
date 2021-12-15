@@ -665,6 +665,85 @@
                           </div>
                          
                         </div>
+                        <div
+                          v-if="
+                            status == 'completeandevaluated' &&
+                            m.workshop_office_work_milestone_status ==
+                              'completed' &&
+                            m.workshop_office_work_milestone_name ==
+                              'Recepción del vehículo'
+                          "
+                        >
+                          <div class="grid place-items-center">
+                            <div class="flex space-x-5">
+                              <svg
+                                class="h-8 w-8 text-green-500"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                <polyline points="22 4 12 14.01 9 11.01" />
+                              </svg>
+                              <svg
+                                class="h-8 w-8 text-green-500"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                <polyline points="22 4 12 14.01 9 11.01" />
+                              </svg>
+                              <svg
+                                class="h-8 w-8 text-green-500"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                <polyline points="22 4 12 14.01 9 11.01" />
+                              </svg>
+                              <svg
+                                class="h-8 w-8 text-green-500"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                <polyline points="22 4 12 14.01 9 11.01" />
+                              </svg>
+                            </div>
+                          </div>
+
+                          <label
+                            >El servicio se encuentra finalizado y el cliente ya
+                            lo ha evaluado</label
+                          >
+
+                          <div>
+                            <label class="font-bold label">Avances</label>
+                            <br />
+                            <ul class="list-disc">
+                              <li v-for="a in list" :key="a">
+                                {{
+                                  a.workshop_office_service_advance_description
+                                }}
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>

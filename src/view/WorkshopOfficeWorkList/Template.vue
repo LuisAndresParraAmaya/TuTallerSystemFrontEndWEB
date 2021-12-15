@@ -26,7 +26,8 @@
                         boton(
                           a.workshop_office_work_id,
                           a.workshop_office_work_status,
-                          a.workshop_office_service_name
+                          a.workshop_office_service_name,
+                          a.workshop_office_id
                         )
                       "
                       class="w-auto px-1 py-1 m-2 rounded-md btn text-coolGray-50"
