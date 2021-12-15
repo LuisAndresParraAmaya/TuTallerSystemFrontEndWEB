@@ -24,7 +24,7 @@ export default {
     mounted() {
 
         this.status= sessionStorage.getItem('status')
-        this.officeWorkId = sessionStorage.getItem('workshopOficceWork')
+        this.officeWorkId = sessionStorage.getItem('workshopOfficeWork')
         this.nombreservicio= sessionStorage.getItem('nombreservicio')
         if (this.officeWorkId == null || this.officeWorkId == 'null') {
             this.$router.push('WorkshopOfficeWorkList')
