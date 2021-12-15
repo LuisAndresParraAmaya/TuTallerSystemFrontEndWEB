@@ -95,6 +95,29 @@
               >
             </button>
           </li>
+          
+          <li class="nav-item" v-show="isAuthenticated == true">
+            <button
+              class="
+                px-3
+                py-2
+                flex
+                items-center
+                text-xs
+                uppercase
+                font-bold
+                leading-snug
+                text-white
+                hover:opacity-75
+              "
+              v-on:click="navegarTrue('WorkshopOfficeWorkList')"
+            >
+              <i class="text-lg leading-lg text-white opacity-75" /><span
+                class="ml-2"
+                >Servicios</span
+              >
+            </button>
+          </li>
           <li class="nav-item" v-show="isAuthenticated == true">
             <button
               class="
