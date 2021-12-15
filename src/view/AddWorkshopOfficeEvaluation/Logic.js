@@ -15,7 +15,7 @@ export default {
     mounted() {
         this.officeWorkId = sessionStorage.getItem('workshopofficeid')
         this.userRut= sessionStorage.getItem('user_rut')
-        this.officeid=sessionStorage.getItem('workshop_office_id')
+        this.officeid=sessionStorage.getItem('workshop_id')
         
     },
     methods: {

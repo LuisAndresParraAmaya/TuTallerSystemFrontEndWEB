@@ -4,6 +4,7 @@
       <h1 style="text-align: center; font-size: 45px; margin-bottom: 3%">
         Evaluar servicio recibido
       </h1>
+      {{}}
       <div class="bg-base-200 flex justify-center">
         <div class="w-3/5">
           <form class="mt-6 mb-10">
@@ -34,7 +35,6 @@
                   id="numberdiscount"
                 />
               </div>
-              {{reseña}}
 
               <br />
               
