@@ -46,10 +46,6 @@ import WorkshopOfficeWorkTechnicalReport from './view/WorkshopOfficeWorkTechnica
 import AddWorkshopOfficeWorkAdvance from './view/AddWorkshopOfficeWorkAdvance/Template.vue'
 import CompleteWorkshopOfficeWork from './view/CompleteWorkshopOfficeWork/Template.vue'
 import AddWorkshopOfficeEvaluation from './view/AddWorkshopOfficeEvaluation/Template.vue'
-import RealizePay from './view/RealizePay/Template.vue'
-import PaymentSuccess from './view/RealizePay/PaymentSuccess/Template.vue'
-import PaymentReject from './view/RealizePay/PaymentReject/Template.vue'
-
 const routes = [
     
     {path: '/', component: Home },
@@ -103,11 +99,7 @@ const routes = [
     {path: '/ShowWorkshopEmployee', name:'ShowWorkshopEmployee', component: ShowWorkshopEmployee},
     {path: '/WorkshopAds', name:'WorkshopAds', component: WorkshopAds},
     {path: '/WorkshopOfficeService', name:'WorkshopOfficeService', component: WorkshopOfficeService},
-    {path: '/OfferWorkshopService', name:'OfferWorkshopService', component: OfferWorkshopService},
-    // Realizar pago
-    {path: '/RealizePay', name:'RealizePay', component: RealizePay},
-    {path: '/PaymentSuccess', name:'PaymentSuccess', component: PaymentSuccess},
-    {path: '/PaymentReject', name:'PaymentReject', component: PaymentReject}
+    {path: '/OfferWorkshopService', name:'OfferWorkshopService', component: OfferWorkshopService}
 ]
 export const router = createRouter({
     history:createWebHistory(),
