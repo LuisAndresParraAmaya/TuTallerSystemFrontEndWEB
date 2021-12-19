@@ -43,14 +43,20 @@
 <script setup>
 import { useRoute } from "vue-router";
 import axios from 'axios'
+import { validateRut } from "../../utils/validations";
+import { deformatRutNumber } from "../../utils/formaters";
 const router = useRoute();
-;
 async function registerEmployee() {
+  let rutValidationRes = validateRut(txtRut.value);
+  if (rutValidationRes !== null) {
+    alert(rutValidationRes);
+    return;
+  }
   await axios
     .post("http://localhost:8080/AddWorkshopOfficeEmployee", {
       headers: { "Content-type": "application/json" },
       data: { workshop_office_id: sessionStorage.getItem('workshop_office_id'),
-       user_rut: txtRut.value,
+       user_rut: deformatRutNumber(txtRut.value),
        workshop_office_employee_specialization: selectEsp.value,
        workshop_office_employee_experience: txtExperience.value  
       }

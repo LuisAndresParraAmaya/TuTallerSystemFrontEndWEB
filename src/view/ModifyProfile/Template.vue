@@ -35,6 +35,7 @@
           placeholder="Rut"
           class="input input-bordered"
           id="txtNewRut"
+          disabled
         />
         <label class="label">
           <span class="label-text">Correo Electrónico</span>
@@ -89,7 +90,9 @@ import { onMounted } from "@vue/runtime-core";
 import { isAuthenticated } from "../../helpers/userAuth";
 onMounted(function () {
   txtName.value = sessionStorage.getItem("user_name");
-  txtNewRut.value = sessionStorage.getItem("user_rut");
+  txtNewRut.value = formatRut(
+    calculateRutCheckDigit(formatRut(sessionStorage.getItem("user_rut")))
+  );
   txtLastname.value = sessionStorage.getItem("user_last_name");
   txtPhone.value = sessionStorage.getItem("user_phone");
   txtEmail.value = sessionStorage.getItem("user_email");
@@ -98,14 +101,14 @@ onMounted(function () {
 import { useRouter } from "vue-router";
 const router = useRouter();
 import axios from "axios";
-
+import { formatRut } from "../../utils/formaters";
+import { calculateRutCheckDigit } from "../../utils/calculators";
 async function modifyProfile() {
-  let passIssue = false
+  let passIssue = false;
   // Validacion de campos vacios
   const values = [
     { name: "Nombre", value: txtName.value },
     { name: "Apellido", value: txtLastname.value },
-    { name: "Rut", value: txtNewRut.value },
     { name: "Correo Electrónico", value: txtEmail.value },
     { name: "Telefono", value: txtPhone.value },
   ];
@@ -119,7 +122,7 @@ async function modifyProfile() {
     alert('Debe ingresar el numero de telefono completo, ejemplo: 912345678')
     return
   }
-  const response = prompt("Porfavor ingresa tu contraseña actual");
+  const response = prompt("Confirma tu contraseña actual para modificar tu perfil");
   if (response.trim().length == 0) {
     alert("debes ingresar tu contraseña actual");
     return;
@@ -213,17 +216,15 @@ async function modifyProfile() {
         user_email: txtEmail.value,
         user_phone: txtPhone.value,
         user_rut: sessionStorage.getItem("user_rut"),
-        user_new_rut: txtNewRut.value,
         user_password: response
       },
     })
     .then(function (response) {
-      sessionStorage.setItem("user_rut", response.data.user_new_rut);
-      if (response.data.user_new_rut != undefined) {
+      if (response.data.Response == "Operation Success") {
         alert("Sus datos fueron actualizados correctamente");
         return
       }
-      if(response.data.Response == 'Actual Password Failed'){
+      if(response.data.Response == "Actual Password Failed"){
         alert("La contraseña actual ingresada no coincide");
         return
       }
