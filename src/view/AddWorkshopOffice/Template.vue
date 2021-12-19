@@ -6,6 +6,10 @@
       </h1>
       <div>
         <form @submit.prevent class="m-14">
+          <label v-if="_getShowLabel()"
+            >Para hacer efectiva tu postulación, debes ingresar la sucursal
+            principal de tu taller automotriz</label
+          >
           <div class="form-control mt-14">
             <label>Región</label><br />
             <select id="selectRegion" class="select input-bordered w-72">
@@ -13,7 +17,13 @@
             ><br />
             <label>Comuna</label><br />
             <select id="selectCommune" class="select input-bordered w-72">
-              <option :value="commune.id" v-for="commune in communesMetropolitan" :key="commune">{{commune.commune_name}}</option>
+              <option
+                :value="commune.id"
+                v-for="commune in communesMetropolitan"
+                :key="commune"
+              >
+                {{ commune.commune_name }}
+              </option>
             </select>
             <label class="label">
               <span class="label-text">Dirección de sucursal</span>
@@ -201,7 +211,7 @@
               v-on:click="getSchedule"
               class="w-full px-8 py-3 rounded-md btn text-coolGray-50 mt-5"
             >
-              Agregar sucursal
+              {{ _getName() }}
             </button>
           </div>
         </form>
@@ -215,18 +225,30 @@ import axios from "axios";
 export default {
   setup() {
     const communesMetropolitan = [
-      {commune_name: 'Santiago', id:135},
-      {commune_name: 'Cerrillos', id:136},
-      {commune_name: 'Cerro Navia', id:137},
-      {commune_name: 'Conchalí', id:138},
-      {commune_name: 'El Bosque', id:139},
-      {commune_name: 'Estación Central', id:140},
-      {commune_name: 'Huechuraba', id:141},
-      {commune_name: 'Independencia', id:142},
-      {commune_name: 'La Cisterna', id:143},
-      {commune_name: 'La Florida', id:144}
-    ]
+      { commune_name: "Santiago", id: 135 },
+      { commune_name: "Cerrillos", id: 136 },
+      { commune_name: "Cerro Navia", id: 137 },
+      { commune_name: "Conchalí", id: 138 },
+      { commune_name: "El Bosque", id: 139 },
+      { commune_name: "Estación Central", id: 140 },
+      { commune_name: "Huechuraba", id: 141 },
+      { commune_name: "Independencia", id: 142 },
+      { commune_name: "La Cisterna", id: 143 },
+      { commune_name: "La Florida", id: 144 },
+    ];
     const route = useRoute();
+
+    function _getName() {
+      if (route.params.operationType == "sendPostulation")
+        return "Enviar Postulación";
+      return "Agregar Sucursal";
+    }
+
+    function _getShowLabel() {
+      if (route.params.operationType == "sendPostulation") return true;
+      return false;
+    }
+
     async function getSchedule() {
       let workshop_office_attention = [];
       // CONDITIONS MONDAY
@@ -413,32 +435,94 @@ export default {
         alert("Debe registrar por lo menos un dia de atención en la sucursal.");
         return;
       }
-      await axios
-        .post("http://localhost:8080/AddWorkshopOffice", {
-          headers: { "Content-type": "application/json" },
-          data: {
-            workshop_id: route.params.workshop_id,
-            commune_id: selectCommune.value, // select
-            workshop_office_suscription_id: 1,
-            workshop_office_address: txtAddress.value,
-            workshop_office_phone: txtPhone.value,
-            ////Informacion relacionada a el horario de atencion
-            workshop_office_attention: workshop_office_attention,
-          },
-        })
-        .then(function (res) {
-          if (res.data.Response == "Office Attention Success") {
-            alert("La sucursal fue registrada con exito");
-          }
-          if (res.data.Response == "Address already in use") {
-            alert("La dirección ingresada corresponde a otra sucursal");
-          }
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+      if (route.params.operationType == "sendPostulation") {
+        let formData = new FormData();
+        const headers = {
+          "Content-type": `multipart/form-data; boundary=${formData._boundary}`,
+        };
+        formData.append("user_rut", route.params.user_rut);
+        formData.append("workshop_name", route.params.workshop_name);
+        formData.append("workshop_number", route.params.workshop_number);
+        formData.append(
+          "workshop_description",
+          route.params.workshop_description
+        );
+        formData.append(
+          "workshop_business_name",
+          route.params.workshop_business_name
+        );
+        formData.append(
+          "postulation_message",
+          route.params.postulation_message
+        );
+        formData.append("file", route.params.file);
+        let WorkshopId = await axios
+          .post("http://localhost:8080/SendPostulation", formData, {
+            headers: headers,
+          })
+          .then(function (res) {
+            if (res.data.Response.WorkshopId !== undefined) {
+              alert(
+                "Se envio la postulación de su taller, espere a que sea respondido por los moderadores"
+              );
+              return res.data.Response.WorkshopId;
+            }
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+          await axios
+          .post("http://localhost:8080/AddWorkshopOffice", {
+            headers: { "Content-type": "application/json" },
+            data: {
+              workshop_id: WorkshopId,
+              commune_id: selectCommune.value, // select
+              workshop_office_suscription_id: 1,
+              workshop_office_address: txtAddress.value,
+              workshop_office_phone: txtPhone.value,
+              ////Informacion relacionada a el horario de atencion
+              workshop_office_attention: workshop_office_attention,
+            },
+          })
+          .then(function (res) {
+            if (res.data.Response == "Office Attention Success") {
+              alert("La sucursal fue registrada con exito");
+            }
+            if (res.data.Response == "Address already in use") {
+              alert("La dirección ingresada corresponde a otra sucursal");
+            }
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      } else {
+        await axios
+          .post("http://localhost:8080/AddWorkshopOffice", {
+            headers: { "Content-type": "application/json" },
+            data: {
+              workshop_id: route.params.workshop_id,
+              commune_id: selectCommune.value, // select
+              workshop_office_suscription_id: 1,
+              workshop_office_address: txtAddress.value,
+              workshop_office_phone: txtPhone.value,
+              ////Informacion relacionada a el horario de atencion
+              workshop_office_attention: workshop_office_attention,
+            },
+          })
+          .then(function (res) {
+            if (res.data.Response == "Office Attention Success") {
+              alert("La sucursal fue registrada con exito");
+            }
+            if (res.data.Response == "Address already in use") {
+              alert("La dirección ingresada corresponde a otra sucursal");
+            }
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      }
     }
-    return { getSchedule, communesMetropolitan };
+    return { getSchedule, communesMetropolitan, _getShowLabel, _getName };
   },
 };
 // PRIMERO CREAR OFFICE, LUEGO INGRESAR HORARIO DE ATENCION

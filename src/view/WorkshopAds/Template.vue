@@ -11,7 +11,7 @@
 </div>
 <div>
         <label for="inputFile" class="btn mt-4">Subir Foto</label>
-        <input type="file" hidden name="imagen" id="inputFile" />
+        <input type="file" hidden name="imagen" id="inputFile" accept="image/png, image/jpeg, image/jpg"/>
         </div>
         <input 
           type="hidden"

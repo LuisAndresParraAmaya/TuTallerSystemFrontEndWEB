@@ -21,6 +21,17 @@ export default {
         alert('Debe ingresar el numero de telefono completo, ejemplo: 912345678')
         return
       }
+      //CAPUTAR DATA Y REDIRECCIONAR
+      this.$router.push({ name: 'AddWorkshopOffice', params: { 
+        operationType: "sendPostulation", 
+        user_rut: sessionStorage.getItem('user_rut'), 
+        workshop_name: workshop_name.value,
+        workshop_number: workshop_number.value,
+        workshop_description: workshop_description.value,
+        postulation_message: postulation_message.value,
+        workshop_business_name: workshop_business_name.value,
+        file: inputFile.files[0]
+      }})
       await axios.post("http://localhost:8080/SendPostulation", {
           headers: { "Content-type": "application/json" },
           data: { 

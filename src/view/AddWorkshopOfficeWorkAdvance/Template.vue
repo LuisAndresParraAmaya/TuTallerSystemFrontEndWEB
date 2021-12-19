@@ -31,7 +31,7 @@
                 </label>
                 <div class="grid place-content-center items-center">
                   <img :src="imagen" class="h-24">
-                  <input type="file" @change="cargarImagen" id="inputFile" >
+                  <input type="file" @change="cargarImagen" id="inputFile" accept="image/png, image/jpeg, image/jpg">
                 </div>
               </div>
 
