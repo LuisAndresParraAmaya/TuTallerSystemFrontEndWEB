@@ -63,7 +63,7 @@ const routes = [
     {path: '/RealizePostulation', name:'RealizePostulation', component: RealizePostulation },
     {path: '/ListPostulation', name:'ListPostulation', component: ListPostulation},
     {path: '/RefuseWorkshop', component: RefuseWorkshop},
-    {path: '/SeeMore', name:'WorkshopPostulation', component: SeeMore},
+    {path: '/SeeMore', name:'SeeMore', component: SeeMore},
     {path: '/MyWorkshopList', name:'MyWorkshopList', component: MyWorkshopList},
     {path: '/MyWorkshop', name:'MyWorkshop', component: MyWorkshop},
     {path: '/MyWorkshopOfficeList', name:'MyWorkshopOfficeList', component: MyWorkshopOfficeList},

@@ -13,10 +13,10 @@ export default {
             console.log(error);
         });
 
-        function goToWorkshopPostulation(name, status, time, message, contact, user_rut, description, id){
+        function goToSeeMore(name, status, time, message, contact, user_rut, description, id){
             console.log(user_rut)
-            this.$router.push({name: 'WorkshopPostulation', params: { name: name, status: status, time: time, message: message, contact: contact, user_rut: user_rut, description: description, id: id}})
+            this.$router.push({name: 'SeeMore', params: { name: name, status: status, time: time, message: message, contact: contact, user_rut: user_rut, description: description, id: id}})
         }
-        return { list, goToWorkshopPostulation, formatDateTime, statusEnglishToSpanish};
+        return { list, goToSeeMore, formatDateTime, statusEnglishToSpanish};
     }
 }

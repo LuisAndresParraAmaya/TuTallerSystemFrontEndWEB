@@ -183,7 +183,7 @@
               >
             </button>
           </li>
-          <li class="nav-item" v-show="isAuthenticated == true">
+          <li class="nav-item" v-show="!getShow() && isAuthenticated == true">
             <button
               class="
                 px-3
@@ -205,7 +205,7 @@
               >
             </button>
           </li>
-          <li class="nav-item" v-show="isAuthenticated == true">
+          <li class="nav-item" v-show="!getShow() && isAuthenticated == true">
             <button
               class="
                 px-3

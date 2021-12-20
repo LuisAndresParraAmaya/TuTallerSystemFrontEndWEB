@@ -21,10 +21,15 @@ export default {
             }
         }
 
-        function NavigateToRoute(workshop_office_id, workshop_office_address, workshop_office_phone, commune_name){
+        function NavigateToRoute(region, workshop_office_id, workshop_office_address, workshop_office_phone, commune_name){
+            console.log(region)
+            console.log(workshop_office_id)
+            console.log(workshop_office_address)
+            console.log(workshop_office_phone)
+            console.log(commune_name)
             /*Source -> RouteLocationRaw: 
             https://next.router.vuejs.org/api/#routelocationraw*/
-            this.$router.push({name: 'MyWorkshopOffice', params: { workshop_office_id: workshop_office_id, workshop_office_address: workshop_office_address, workshop_office_phone: workshop_office_phone, commune_name: commune_name }})
+            this.$router.push({name: 'MyWorkshopOffice', params: { region: region, workshop_office_id: workshop_office_id, workshop_office_address: workshop_office_address, workshop_office_phone: workshop_office_phone, commune_name: commune_name }})
         }
 
         return { offices, NavigateToRoute, getNameSuscription };

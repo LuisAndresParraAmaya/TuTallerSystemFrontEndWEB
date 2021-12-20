@@ -11,6 +11,7 @@
               <th>Nombre taller</th>
               <th>Contacto taller</th>
               <th>Ver más</th>
+              <th>Estado</th>
               <th>Acciónes</th>
             </tr>
           </thead>
@@ -26,6 +27,7 @@
                   Ver Sucursales
                 </button>
               </td>
+              <td>{{ (workshop.postulation_current_status == "pending") ? "Pendiente": "Aceptado"}}</td>
               <td>
                 <button
                   v-on:click="NavigateToRoute('AddWorkshopOffice', workshop.workshop_id)"

@@ -21,7 +21,7 @@
           <td class="p-6">+56 {{ office.workshop_office_phone }}</td>
           <td class="p-6">{{ getNameSuscription(office.workshop_office_suscription_name) }}</td>
           <td class="p-6"><!--TODO-->
-            <button v-on:click="NavigateToRoute(office.workshop_office_id, office.workshop_office_address, office.workshop_office_phone, office.commune_name)" class="btn btn-success rounded-full w-24">Ver Más</button>
+            <button v-on:click="NavigateToRoute(office.region_name, office.workshop_office_id, office.workshop_office_address, office.workshop_office_phone, office.commune_name)" class="btn btn-success rounded-full w-24">Ver Más</button>
           </td>
         </tr>
       </tbody>

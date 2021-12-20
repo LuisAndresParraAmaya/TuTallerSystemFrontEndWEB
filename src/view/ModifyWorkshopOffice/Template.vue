@@ -354,7 +354,8 @@ export default {
         }
 
         function getRegion(){
-          return sessionStorage.getItem('workshop_office_region')
+          console.log(router.params)
+          return router.params.region
         }
         function enConstruccion(){
           alert("Funcion en construccion...")

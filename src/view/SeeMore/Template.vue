@@ -33,7 +33,7 @@
             <label class="label">Estado:</label>
           </div>
           <div class="w-full">
-            <label class="label-text">{{ status }}</label>
+            <label class="label-text">{{ (status == "accepted") ? "Aceptado" : "Pendiente" }}</label>
           </div>
         </div>
         <div class="flex">

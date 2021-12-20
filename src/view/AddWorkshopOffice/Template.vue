@@ -206,7 +206,10 @@
                 </tr>
               </tbody>
             </table>
-
+            <div v-if="_getShowLabel()">
+            <label for="inputFile" class="btn mt-4">Subir Foto de la parte delantera de la Cedula de identidad/Pasaporte</label>
+              <input required type="file" hidden name="imagen" id="inputFile" accept="image/png, image/jpeg, image/jpg" />
+            </div>
             <button
               v-on:click="getSchedule"
               class="w-full px-8 py-3 rounded-md btn text-coolGray-50 mt-5"
@@ -435,6 +438,7 @@ export default {
         alert("Debe registrar por lo menos un dia de atención en la sucursal.");
         return;
       }
+      let success = false
       if (route.params.operationType == "sendPostulation") {
         let formData = new FormData();
         const headers = {
@@ -455,17 +459,17 @@ export default {
           "postulation_message",
           route.params.postulation_message
         );
-        formData.append("file", route.params.file);
+        formData.append("file", inputFile.files[0])
         let WorkshopId = await axios
           .post("http://localhost:8080/SendPostulation", formData, {
             headers: headers,
           })
           .then(function (res) {
-            if (res.data.Response.WorkshopId !== undefined) {
+            if (res.data.WorkshopId !== undefined) {
               alert(
                 "Se envio la postulación de su taller, espere a que sea respondido por los moderadores"
               );
-              return res.data.Response.WorkshopId;
+              return res.data.WorkshopId;
             }
           })
           .catch(function (error) {
@@ -487,6 +491,7 @@ export default {
           .then(function (res) {
             if (res.data.Response == "Office Attention Success") {
               alert("La sucursal fue registrada con exito");
+              success = true
             }
             if (res.data.Response == "Address already in use") {
               alert("La dirección ingresada corresponde a otra sucursal");
@@ -511,6 +516,7 @@ export default {
           })
           .then(function (res) {
             if (res.data.Response == "Office Attention Success") {
+
               alert("La sucursal fue registrada con exito");
             }
             if (res.data.Response == "Address already in use") {
@@ -520,6 +526,7 @@ export default {
           .catch(function (error) {
             console.log(error);
           });
+          this.$route.push({name: MyWorkshopOfficeList})
       }
     }
     return { getSchedule, communesMetropolitan, _getShowLabel, _getName };

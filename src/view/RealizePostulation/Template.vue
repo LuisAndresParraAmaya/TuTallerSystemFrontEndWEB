@@ -64,10 +64,6 @@
             rows="5"
             required
           ></textarea>
-          <div>
-            <label for="inputFile" class="btn mt-4">Subir Foto de la parte delantera de la Cedula de identidad/Pasaporte</label>
-            <input required type="file" hidden name="imagen" id="inputFile" accept="image/png, image/jpeg, image/jpg" />
-          </div>
           <button
             v-on:click="sendPostulation"
             class="w-full px-8 py-3 rounded-md btn text-coolGray-50 mt-5 mb-4"
