@@ -340,10 +340,8 @@ export default {
         });
         function getShow() {
             if (sessionStorage.getItem("user_type_id") == 3) {
-                console.log("DEVOLVI TRUE")
                 return true;
             } else {
-                console.log()
                 return false;
             }
         }

@@ -49,17 +49,11 @@
                 <td class="py-2">08:00{{ open }} hrs</td>
                 <td class="py-2">20:00{{ close }} hrs</td>
                 <td class="py-2">
-                  <button
-                    class="
-                      bg-green-600
-                      hover:bg-green-700
-                      text-coolGray-50
-                      rounded-full                      
-                      p-2
-                      w-auto                    "
-                  >
-                    Reservar
-                  </button>
+                  <Suspense>
+                  <template #default>
+                    <FormTransBank />
+                  </template>
+                </Suspense>
                 </td>
               </tr>
               <tr>
@@ -67,18 +61,11 @@
                 <td class="py-2">08:00{{ open }} hrs</td>
                 <td class="py-2">20:00{{ close }} hrs</td>
                 <td class="py-2">
-                  <button
-                    class="
-                      bg-green-600
-                      hover:bg-green-700
-                      text-coolGray-50
-                      rounded-full
-                      w-auto
-                      p-2
-                    "
-                  >
-                    Reservar
-                  </button>
+                  <Suspense>
+                  <template #default>
+                    <FormTransBank />
+                  </template>
+                </Suspense>
                 </td>
               </tr>
               <tr>
@@ -86,18 +73,11 @@
                 <td class="py-2">08:00{{ open }} hrs</td>
                 <td class="py-2">20:00{{ close }} hrs</td>
                 <td class="py-2">
-                  <button
-                    class="
-                      bg-green-600
-                      hover:bg-green-700
-                      text-coolGray-50
-                      rounded-full
-                      w-auto
-                      p-2
-                    "
-                  >
-                    Reservar
-                  </button>
+                  <Suspense>
+                  <template #default>
+                    <FormTransBank />
+                  </template>
+                </Suspense>
                 </td>
               </tr>
               <tr>
@@ -105,18 +85,11 @@
                 <td class="py-2">08:00{{ open }} hrs</td>
                 <td class="py-2">20:00{{ close }} hrs</td>
                 <td class="py-2">
-                  <button
-                    class="
-                      bg-green-600
-                      hover:bg-green-700
-                      text-coolGray-50
-                      rounded-full
-                      w-auto
-                      p-2
-                    "
-                  >
-                    Reservar
-                  </button>
+                  <Suspense>
+                  <template #default>
+                    <FormTransBank />
+                  </template>
+                </Suspense>
                 </td>
               </tr>
               <tr>
@@ -124,18 +97,11 @@
                 <td class="py-2">08:00{{ open }} hrs</td>
                 <td class="py-2">20:00{{ close }} hrs</td>
                 <td class="py-2">
-                  <button
-                    class="
-                      bg-green-600
-                      hover:bg-green-700
-                      text-coolGray-50
-                      rounded-full
-                      w-auto
-                      p-2
-                    "
-                  >
-                    Reservar
-                  </button>
+                  <Suspense>
+                  <template #default>
+                    <FormTransBank />
+                  </template>
+                </Suspense>
                 </td>
               </tr>
               <tr>
@@ -143,18 +109,11 @@
                 <td class="py-2">08:00{{ open }} hrs</td>
                 <td class="py-2">20:00{{ close }} hrs</td>
                 <td class="py-2">
-                  <button
-                    class="
-                      bg-green-600
-                      hover:bg-green-700
-                      text-coolGray-50
-                      rounded-full
-                      w-auto
-                      p-2
-                    "
-                  >
-                    Reservar
-                  </button>
+                  <Suspense>
+                  <template #default>
+                    <FormTransBank />
+                  </template>
+                </Suspense>
                 </td>
               </tr>
               <tr>
@@ -162,18 +121,11 @@
                 <td class="py-2">08:00{{ open }} hrs</td>
                 <td class="py-2">20:00{{ close }} hrs</td>
                 <td class="py-2">
-                  <button
-                    class="
-                      bg-green-600
-                      hover:bg-green-700
-                      text-coolGray-50
-                      rounded-full
-                      w-auto
-                      p-2
-                    "
-                  >
-                    Reservar
-                  </button>
+                <Suspense>
+                  <template #default>
+                    <FormTransBank />
+                  </template>
+                </Suspense>
                 </td>
               </tr>
             </tbody>
@@ -183,3 +135,11 @@
     </div>
   </div>
 </template>
+<script>
+import FormTransBank from "../../components/forms/Transbank/Transbank.vue";
+export default {
+  components: {
+    FormTransBank
+  }
+};
+</script>

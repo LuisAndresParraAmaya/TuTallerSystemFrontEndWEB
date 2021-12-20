@@ -21,6 +21,6 @@ import Table from "../../components/WorkShopOfficeServiceList/Table/Template.vue
 export default {
   components: {
     Table,
-  },
+  }
 };
 </script>

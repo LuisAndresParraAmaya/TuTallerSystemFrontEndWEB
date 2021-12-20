@@ -8,7 +8,8 @@ export default {
                 },
                 data:{
                     "sessionId": 58,
-                    "rut": 195915741
+                    "rut": 195915741,
+                    "amount": 3535
                 }
             }
         ).then((res)=>{

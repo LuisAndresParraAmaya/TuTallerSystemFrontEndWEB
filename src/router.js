@@ -49,6 +49,7 @@ import AddWorkshopOfficeEvaluation from './view/AddWorkshopOfficeEvaluation/Temp
 import RealizePay from './view/RealizePay/Template.vue'
 import PaymentSuccess from './view/RealizePay/PaymentSuccess/Template.vue'
 import PaymentReject from './view/RealizePay/PaymentReject/Template.vue'
+import OfferSuscriptionPlan from './view/OfferSuscriptionPlan/Template.vue'
 const routes = [
     
     {path: '/', component: Home },
@@ -105,7 +106,8 @@ const routes = [
     {path: '/OfferWorkshopService', name:'OfferWorkshopService', component: OfferWorkshopService},
     {path: '/RealizePay', name:'RealizePay', component: RealizePay},
     {path: '/PaymentSuccess', name:'PaymentSuccess', component: PaymentSuccess},
-    {path: '/PaymentReject', name:'PaymentReject', component: PaymentReject}
+    {path: '/PaymentReject', name:'PaymentReject', component: PaymentReject},
+    {path: '/OfferSuscriptionPlan', name:'OfferSuscriptionPlan', component: OfferSuscriptionPlan}
 ]
 export const router = createRouter({
     history:createWebHistory(),
