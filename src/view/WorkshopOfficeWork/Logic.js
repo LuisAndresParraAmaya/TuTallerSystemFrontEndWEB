@@ -23,9 +23,8 @@ export default {
     },
     mounted() {
 
-        
         this.status= sessionStorage.getItem('status')
-        this.officeWorkId = sessionStorage.getItem('workshopofficeid')
+        this.officeWorkId = sessionStorage.getItem('workshopOfficeWork')
         this.nombreservicio= sessionStorage.getItem('nombreservicio')
         if (this.officeWorkId == null || this.officeWorkId == 'null') {
             this.$router.push('WorkshopOfficeWorkList')
@@ -36,6 +35,7 @@ export default {
         this.bd()
 
         }
+        
 
     },
     methods: {
@@ -53,7 +53,7 @@ export default {
             let a = confirm('¿Estas seguro de informar el retiro del vehículo?\n Procura que el trabajo en el vehículo esté terminado antes de informar al cliente que ya puede venir a retirarlo')
             if (a) {
                 this.bdComplete(id)
-                location.reload()
+                this.$router.go()
             }
 
         },
@@ -61,7 +61,7 @@ export default {
             let a = confirm('¿Estas seguro de confirmar que el cliente ha retIrado su vehículo?')
             if (a) {
                 this.bdComplete(id)
-                location.reload()
+                this.$router.go()
             }
         },
         confirmFin() {
@@ -144,7 +144,7 @@ export default {
             if (r == true) {
                 console.log(milestoneid)
                 this.bdComplete(milestoneid)
-                location.reload()
+                this.$router.go()
             }
         },
         index() {

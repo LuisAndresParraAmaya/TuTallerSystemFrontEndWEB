@@ -45,11 +45,12 @@ methods:{
         }
         return a;
     },
-    boton(id, status, nombreservicio){
+    boton(idwork, status, nombreservicio, officeId){
 
-        sessionStorage.setItem('workshopofficeid',id)
+        sessionStorage.setItem('workshopofficeid',officeId)
         sessionStorage.setItem('status',status)
         sessionStorage.setItem('nombreservicio',nombreservicio)
+        sessionStorage.setItem('workshopOfficeWork',idwork)
         this.$router.push('WorkshopOfficeWork')
     }
 }

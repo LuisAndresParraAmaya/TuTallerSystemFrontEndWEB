@@ -38,14 +38,7 @@
               Servicios Automotrices
             </button>
           </div>
-          <div>
-            <button
-              v-on:click="Redirect('WorkshopOfficeWorkList')"
-              class="w-full px-8 py-3 rounded-md btn text-coolGray-50 mt-5"
-            >
-              Servicios en progreso
-            </button>
-          </div>
+          
           <div v-show="getShow()">
             <button
               v-on:click="enConstruccion()"

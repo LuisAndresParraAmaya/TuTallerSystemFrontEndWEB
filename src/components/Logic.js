@@ -61,6 +61,9 @@ export default {
       sessionStorage.setItem('workshop_office_commune',null)
       sessionStorage.setItem('workshop_office_address',null)
       sessionStorage.setItem('workshopofficeid',null)
+      sessionStorage.setItem('workshopOfficeWork',null)
+      sessionStorage.setItem('nombreservicio',null)
+      sessionStorage.setItem('status',null)
       this.$router.push('/Login')
     },
     navegarTrue(a) {
